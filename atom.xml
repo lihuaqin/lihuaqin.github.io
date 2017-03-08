@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-08T04:47:36.308Z</updated>
+  <updated>2017-03-08T09:51:00.042Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -16,25 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>小和尚</title>
-    <link href="http://blog.xiaosecond.top/2017/03/08/%E5%B0%8F%E5%92%8C%E5%B0%9A/"/>
-    <id>http://blog.xiaosecond.top/2017/03/08/小和尚/</id>
-    <published>2017-03-08T12:47:36.000Z</published>
-    <updated>2017-03-08T04:47:36.308Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用Hexo搭建个人博客</title>
-    <link href="http://blog.xiaosecond.top/2017/03/08/xiaosecond/"/>
-    <id>http://blog.xiaosecond.top/2017/03/08/xiaosecond/</id>
-    <published>2017-03-08T11:30:31.000Z</published>
-    <updated>2017-03-08T04:23:00.553Z</updated>
+    <title>hexo+github 搭建个人博客</title>
+    <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
+    <published>2017-03-08T17:48:41.000Z</published>
+    <updated>2017-03-08T09:51:00.042Z</updated>
     
     <summary type="html">
     
