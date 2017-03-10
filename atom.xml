@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-10T03:19:59.217Z</updated>
+  <updated>2017-03-10T07:11:58.464Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
     <published>2017-03-08T17:48:41.000Z</published>
-    <updated>2017-03-10T03:19:59.217Z</updated>
+    <updated>2017-03-10T07:11:58.464Z</updated>
     
     <content type="html"><![CDATA[<p>为什么选择使用Hexo在github上搭建博客<br>博客搭建的三个阶段</p>
 <ul>
@@ -32,27 +32,26 @@
 <ul>
 <li>极速生成静态页面</li>
 <li>支持Markdown</li>
+<li>丰富的插件支持</li>
 <li>一键部署博客</li>
-<li><p>丰富的插件支持</p>
-<p>一、环境准备</p>
-<pre><code>1、安装git ： http://pan.baidu.com/s/1eS1fJRs
-
-2、安装node.js ：http://pan.baidu.com/s/1o8He5HS
+</ul>
+<a id="more"></a>
+<p>  一、环境准备<br>       1、安装git ： <a href="http://pan.baidu.com/s/1eS1fJRs" target="_blank" rel="external">http://pan.baidu.com/s/1eS1fJRs</a></p>
+<pre><code>2、安装node.js ：http://pan.baidu.com/s/1o8He5HS
     * 首先hexo是基于nodejs的，所以必须安装nodejs
     * 安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它
     * 安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定
     * hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定
-</code></pre><p>二、安装和配置hexo</p>
+</code></pre><p>  二、安装和配置hexo</p>
 <pre><code>* npm install -g hexo
 * npm install -g hexo-cli
 * npm install hexo --save
-</code></pre><p>三、使用Hexo创建博客框架</p>
-<pre><code>1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令
-     * hexo  init
-     * npm   install
-     * hexo  g   --生成博客静态页
-     * hexo  s   --本地发布博客，访问地址 localhost：4000
-</code></pre><p>四、使用GitHub Pages建立博客站点</p>
+</code></pre><p>  三、使用Hexo创建博客框架<br>       1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令</p>
+<pre><code>* hexo  init
+* npm   install
+* hexo  g   --生成博客静态页
+* hexo  s   --本地发布博客，访问地址 localhost：4000
+</code></pre><p>  四、使用GitHub Pages建立博客站点</p>
 <pre><code>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：
 
     * 有300M免费空间，资料自己管理，保存可靠；
@@ -99,9 +98,7 @@
       内容就是域名，格式如：
       * xiaosecond.top
      添加后部署文件，这个时候再试，应该就成功了
-</code></pre></li>
-</ul>
-]]></content>
+</code></pre>]]></content>
     
     <summary type="html">
     
