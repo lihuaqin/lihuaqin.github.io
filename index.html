@@ -258,7 +258,7 @@
 * npm install -g hexo-cli
 * npm install hexo --save
 </code></pre><p>三、使用Hexo创建博客框架</p>
-<pre><code>1、 在D盘新建一个文件夹 xiaosecond，右键打开 Git Bash Here ，执行以下命令
+<pre><code>1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令
      * hexo  init
      * npm   install
      * hexo  g   --生成博客静态页
@@ -266,11 +266,50 @@
 </code></pre><p>四、使用GitHub Pages建立博客站点</p>
 <pre><code>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：
 
-* 有300M免费空间，资料自己管理，保存可靠；
-* 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；
-* 可以使用很多现成的博客框架，搭建过程简单快速。
+    * 有300M免费空间，资料自己管理，保存可靠；
+    * 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；
+    * 可以使用很多现成的博客框架，搭建过程简单快速。
 1、注册一个github账号：https://github.com
 2、创建一个****.github.io的仓库, ****位置为github账号，此处必须一致！
+3、配置git
+   （1）、全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下
+         * git config --global user.email &quot;github邮箱&quot;
+         * git config --global user.name &quot;github名字&quot;
+   （2）、配置SSH
+        3-2-1、 执行下面命令生成SSH
+          * ssh-keygen      --敲三次回车，既可以生成id_rsa.pub文件，这里面就是SSH key的内容
+        3-2-2、打开你的github,点击Setting -&gt; deploy key -&gt; add deploy ,将id_rsa.pub文件内容粘贴进
+        去，并勾选allow write access
+        3-2-3、判断SSH是否配置好,命令如下：
+          * ssh -T git@github.com
+          出现Hi CoderTian! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+          就表示你已经配置好了SSH
+4、配置本地Hexo
+   （1）、打开Hexo目录下的_config.yml，拉倒最下面
+          配置为这样子,只需要把xiaosecond改为你自己的github用户名就可以了。
+            * deploy:
+            * type: git
+            * repository:  git@github.com:xiaosecond/xiaosecond.github.io.git
+            * branch: master
+   (2)、保存之后回到hexo 根目录，依次执行如下命令：
+            * hexo  clean
+            * hexo  g
+            * hexo  d
+         显示以下内容表示上传成功！
+            To github.com:xiaosecond/xiaosecond.github.io.git
+             + 662555e...23556e2 HEAD -&gt; master (forced update)
+            INFO  Deploy done: git
+   （3）、  打开你的github,点击Setting -&gt; options -&gt;  GitHub Pages  开启主页功能
+         如果成功的话在浏览器输入(http://xiaosecond.github.io) 就可以访问你的博客了。把用户名换为你自己的。
+5、绑定域名
+   1、ping到 github 上的ip,命令如下;
+      * ping  xiaosecond.github.io
+   2、登陆阿里云，把获取的IP绑定到域名上，首先找到控制台--&gt;产品与服务--&gt;域名--&gt;域名列表
+   3、在xiaosecond.github.io的根目录下添加CNAME,具体就是在Hexo目录里的source文件下添加
+      一个名为CNAME的文件，注意这个文件是没有后缀的，千万不要设置成.txt文本文件，文件的
+      内容就是域名，格式如：
+      * xiaosecond.top
+     添加后部署文件，这个时候再试，应该就成功了
 </code></pre></li>
 </ul>
 
@@ -283,7 +322,7 @@
 
 </div>
 
-    <a data-url="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/" data-id="cj037qb330000jkrm18s6xqs5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/" data-id="cj039c86k0000psrm200ixfmj" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
