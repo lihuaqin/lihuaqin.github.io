@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-11T14:46:54.857Z</updated>
+  <updated>2017-03-11T14:50:25.758Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
     <published>2017-03-08T17:48:41.000Z</published>
-    <updated>2017-03-11T14:46:54.857Z</updated>
+    <updated>2017-03-11T14:50:25.758Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="博客搭建的三个阶段"><a href="#博客搭建的三个阶段" class="headerlink" title="博客搭建的三个阶段"></a>博客搭建的三个阶段</h2><h4 id="ensp-为什么选择使用Hexo在github上搭建博客"><a href="#ensp-为什么选择使用Hexo在github上搭建博客" class="headerlink" title="&ensp; 为什么选择使用Hexo在github上搭建博客"></a>&ensp; 为什么选择使用Hexo在github上搭建博客</h4><p>&ensp;第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。<br>&ensp;第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。<br>&ensp;第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。<br>&ensp;&emsp;第一阶段最简单，在csdn、博客园或者其他博客网站上注册一个账号就算开个blog了。第二阶段功能强大，购买空间之后就能创建动态网站，然而还要自己写代码，对于工作党来说，时间宝贵，花费在这个上面也提升不了多少自己的价值。而搭建该博客的目的是在于提供一种形式让自己去总结自己的工作经验、技术经验，也当作一个分享。所以，我选择的是第三种方法。</p>
+    <content type="html"><![CDATA[<h2 id="为什么选择使用Hexo在github上搭建博客"><a href="#为什么选择使用Hexo在github上搭建博客" class="headerlink" title="为什么选择使用Hexo在github上搭建博客"></a>为什么选择使用Hexo在github上搭建博客</h2><h5 id="博客搭建的三个阶段"><a href="#博客搭建的三个阶段" class="headerlink" title="博客搭建的三个阶段"></a>博客搭建的三个阶段</h5><p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。<br>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。<br>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。<br>第一阶段最简单，在csdn、博客园或者其他博客网站上注册一个账号就算开个blog了。第二阶段功能强大，购买空间之后就能创建动态网站，然而还要自己写代码，对于工作党来说，时间宝贵，花费在这个上面也提升不了多少自己的价值。而搭建该博客的目的是在于提供一种形式让自己去总结自己的工作经验、技术经验，也当作一个分享。所以，我选择的是第三种方法。</p>
 <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo是一个简单、快速、强大的静态博客框架,出自台湾大学生tommy351之手。使用Jekyll搭建个人博客的过程，确实要繁琐许多。相比之下Hexo更轻便更快捷，下面是Hexo官网强调Hexo的四大特点：</p>
 <ul>
 <li>极速生成静态页面</li>
