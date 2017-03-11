@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-03-11T15:52:54.493Z">
+<meta property="og:updated_time" content="2017-03-11T15:55:24.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github 搭建个人博客">
 <meta name="twitter:description" content="生命在于折腾">
@@ -252,16 +252,8 @@
 </ol>
 <h2 id="安装和配置hexo"><a href="#安装和配置hexo" class="headerlink" title="安装和配置hexo"></a>安装和配置hexo</h2><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*npm install -g hexo</div><div class="line">*npm install -g hexo-cli</div><div class="line">*npm install hexo --save</div></pre></td></tr></table></figure>
 </code></pre><h2 id="使用Hexo创建博客框架"><a href="#使用Hexo创建博客框架" class="headerlink" title="使用Hexo创建博客框架"></a>使用Hexo创建博客框架</h2><p>在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*hexo  init</div><div class="line">*npm   install</div><div class="line">*hexo  g   --生成博客静态页</div><div class="line">*hexo  s   --本地发布博客，访问地址 localhost：4000</div></pre></td></tr></table></figure></p>
-<h2 id="使用GitHub-Pages建立博客站点"><a href="#使用GitHub-Pages建立博客站点" class="headerlink" title="使用GitHub Pages建立博客站点"></a>使用GitHub Pages建立博客站点</h2><pre><code>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：
-
-    * 有300M免费空间，资料自己管理，保存可靠；
-    * 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；
-    * 可以使用很多现成的博客框架，搭建过程简单快速。
-1、注册一个github账号：https://github.com
-2、创建一个****.github.io的仓库, ****位置为github账号，此处必须一致！
-3、配置git
-   （1）、全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下
-         * git config --global user.email &quot;github邮箱&quot;
+<h2 id="使用GitHub-Pages建立博客站点"><a href="#使用GitHub-Pages建立博客站点" class="headerlink" title="使用GitHub Pages建立博客站点"></a>使用GitHub Pages建立博客站点</h2><p>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：<br>&emsp;<em> 有300M免费空间，资料自己管理，保存可靠；<br>&emsp;</em> 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；<br>&emsp;<em> 可以使用很多现成的博客框架，搭建过程简单快速。<br>      1、注册一个github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a><br>      2、创建一个<strong><em>*.github.io的仓库, </em></strong></em>位置为github账号，此处必须一致！<br>      3、配置git<br>         （1）、全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下</p>
+<pre><code>         * git config --global user.email &quot;github邮箱&quot;
          * git config --global user.name &quot;github名字&quot;
    （2）、配置SSH
         3-2-1、 执行下面命令生成SSH
