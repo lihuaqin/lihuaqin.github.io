@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-03-11T16:07:07.535Z">
+<meta property="og:updated_time" content="2017-03-11T16:08:59.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github 搭建个人博客">
 <meta name="twitter:description" content="生命在于折腾">
@@ -256,7 +256,9 @@
 <ul>
 <li>&emsp;有300M免费空间，资料自己管理，保存可靠；</li>
 <li>&emsp;享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；</li>
-<li>&emsp;可以使用很多现成的博客框架，搭建过程简单快速。<h3 id="1-注册一个github账号：https-github-com"><a href="#1-注册一个github账号：https-github-com" class="headerlink" title="1. 注册一个github账号：https://github.com"></a>1. 注册一个github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></h3><h3 id="2-创建一个-github-io的仓库-位置为github账号，此处必须一致！"><a href="#2-创建一个-github-io的仓库-位置为github账号，此处必须一致！" class="headerlink" title="2. 创建一个.github.io的仓库, 位置为github账号，此处必须一致！"></a>2. 创建一个<strong><strong>.github.io的仓库, </strong></strong>位置为github账号，此处必须一致！</h3><h3 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3. 配置git"></a>3. 配置git</h3><h6 id="emsp-emsp-emsp-全局配置下邮箱和名字（注册github时的邮箱和账号）-命令如下-git-config-global-user-email-quot-github邮箱-quot-git-config-–global-user-name-“github名字”"><a href="#emsp-emsp-emsp-全局配置下邮箱和名字（注册github时的邮箱和账号）-命令如下-git-config-global-user-email-quot-github邮箱-quot-git-config-–global-user-name-“github名字”" class="headerlink" title="&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下*git config --global user.email &quot;github邮箱&quot;*git config –global user.name “github名字”"></a>&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下<code>*git config --global user.email &quot;github邮箱&quot;</code>*git config –global user.name “github名字”</h6><pre><code>   （2）、配置SSH
+<li><p>&emsp;可以使用很多现成的博客框架，搭建过程简单快速。</p>
+<h3 id="1-注册一个github账号：https-github-com"><a href="#1-注册一个github账号：https-github-com" class="headerlink" title="1. 注册一个github账号：https://github.com"></a>1. 注册一个github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></h3><h3 id="2-创建一个-github-io的仓库-位置为github账号，此处必须一致！"><a href="#2-创建一个-github-io的仓库-位置为github账号，此处必须一致！" class="headerlink" title="2. 创建一个.github.io的仓库, 位置为github账号，此处必须一致！"></a>2. 创建一个<strong><strong>.github.io的仓库, </strong></strong>位置为github账号，此处必须一致！</h3><h3 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3. 配置git"></a>3. 配置git</h3><h6 id="emsp-emsp-emsp-全局配置下邮箱和名字（注册github时的邮箱和账号）-命令如下"><a href="#emsp-emsp-emsp-全局配置下邮箱和名字（注册github时的邮箱和账号）-命令如下" class="headerlink" title="&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下"></a>&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下</h6><figure class="highlight plain"><figcaption><span>config --global user.email "github邮箱"```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```*git config --global user.name &quot;github名字&quot;</div></pre></td></tr></table></figure>
+<pre><code>   （2）、配置SSH
         3-2-1、 执行下面命令生成SSH
           * ssh-keygen      --敲三次回车，既可以生成id_rsa.pub文件，这里面就是SSH key的内容
         3-2-2、打开你的github,点击Setting -&gt; deploy key -&gt; add deploy ,将id_rsa.pub文件内容粘贴进
