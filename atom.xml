@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-11T04:27:43.776Z</updated>
+  <updated>2017-03-11T12:06:46.952Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
     <published>2017-03-08T17:48:41.000Z</published>
-    <updated>2017-03-11T04:27:43.776Z</updated>
+    <updated>2017-03-11T12:06:46.952Z</updated>
     
     <content type="html"><![CDATA[<p>为什么选择使用Hexo在github上搭建博客<br>博客搭建的三个阶段</p>
 <ul>
@@ -36,24 +36,29 @@
 <li>一键部署博客</li>
 </ul>
 <a id="more"></a>
-<p>  一、环境准备<br>       1、安装git ： <a href="http://pan.baidu.com/s/1eS1fJRs" target="_blank" rel="external">http://pan.baidu.com/s/1eS1fJRs</a><br>       2、安装node.js ：<a href="http://pan.baidu.com/s/1o8He5HS" target="_blank" rel="external">http://pan.baidu.com/s/1o8He5HS</a></p>
-<pre><code>* 首先hexo是基于nodejs的，所以必须安装nodejs
-* 安装nodejs方法很多，我选择homebrew安装方式，所以需要安装它
-* 安装homebrew就很简单了，mac自带ruby脚本功能，一句话搞定
-* hexo提交部署github需要使用git工具，所以需要安装git，用homebrew的话也是一句话搞定
-</code></pre><p>  二、安装和配置hexo</p>
-<pre><code>* npm install -g hexo
-* npm install -g hexo-cli
-* npm install hexo --save
+<p>  一、环境准备</p>
+<ol>
+<li>安装git ： <a href="http://pan.baidu.com/s/1eS1fJRs" target="_blank" rel="external">http://pan.baidu.com/s/1eS1fJRs</a><blockquote>
+<ul>
+<li>hexo提交部署github需要使用git工具，所以需要安装git</li>
+</ul>
+</blockquote>
+</li>
+<li>安装node.js ：<a href="http://pan.baidu.com/s/1o8He5HS" target="_blank" rel="external">http://pan.baidu.com/s/1o8He5HS</a><blockquote>
+<p>*首先hexo是基于nodejs的，所以必须安装nodejs</p>
+</blockquote>
+</li>
+</ol>
+<p>  二、安装和配置hexo<br>       `* npm install -g hexo</p>
+<pre><code>* npm install -g hexo-cli
+* npm install hexo --save`
 </code></pre><p>  三、使用Hexo创建博客框架<br>       1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令</p>
 <pre><code>* hexo  init
 * npm   install
 * hexo  g   --生成博客静态页
 * hexo  s   --本地发布博客，访问地址 localhost：4000
-</code></pre><p>  四、使用GitHub Pages建立博客站点</p>
-<pre><code>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：
-
-    * 有300M免费空间，资料自己管理，保存可靠；
+</code></pre><p>  四、使用GitHub Pages建立博客站点<br>      GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：</p>
+<pre><code>    * 有300M免费空间，资料自己管理，保存可靠；
     * 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；
     * 可以使用很多现成的博客框架，搭建过程简单快速。
 1、注册一个github账号：https://github.com
