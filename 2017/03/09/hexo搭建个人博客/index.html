@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-03-11T14:50:25.758Z">
+<meta property="og:updated_time" content="2017-03-11T15:02:14.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github 搭建个人博客">
 <meta name="twitter:description" content="生命在于折腾">
@@ -246,28 +246,21 @@
 <li>一键部署博客</li>
 </ul>
 <a id="more"></a>
-<h1 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h1><ol>
-<li>安装git ： <a href="http://pan.baidu.com/s/1eS1fJRs" target="_blank" rel="external">http://pan.baidu.com/s/1eS1fJRs</a></li>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li>安装git ： <a href="http://pan.baidu.com/s/1eS1fJRs" target="_blank" rel="external">http://pan.baidu.com/s/1eS1fJRs</a><br>&emsp;hexo提交部署github需要使用git工具，所以需要安装git</li>
+<li>安装node.js ：<a href="http://pan.baidu.com/s/1o8He5HS" target="_blank" rel="external">http://pan.baidu.com/s/1o8He5HS</a><br>&emsp;hexo是基于nodejs的，所以必须安装nodejs</li>
 </ol>
-<ul>
-<li>hexo提交部署github需要使用git工具，所以需要安装git</li>
-</ul>
-<ol>
-<li>安装node.js ：<a href="http://pan.baidu.com/s/1o8He5HS" target="_blank" rel="external">http://pan.baidu.com/s/1o8He5HS</a></li>
-</ol>
-<ul>
-<li>首先hexo是基于nodejs的，所以必须安装nodejs</li>
-</ul>
-<h1 id="二、安装和配置hexo"><a href="#二、安装和配置hexo" class="headerlink" title="二、安装和配置hexo"></a>二、安装和配置hexo</h1><pre><code>`* npm install -g hexo`
-`* npm install -g hexo-cli`
-`* npm install hexo --save`
-</code></pre><p>  三、使用Hexo创建博客框架<br>       1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令</p>
-<pre><code>* hexo  init
-* npm   install
-* hexo  g   --生成博客静态页
-* hexo  s   --本地发布博客，访问地址 localhost：4000
-</code></pre><p>  四、使用GitHub Pages建立博客站点<br>      GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：</p>
-<pre><code>    * 有300M免费空间，资料自己管理，保存可靠；
+<h2 id="安装和配置hexo"><a href="#安装和配置hexo" class="headerlink" title="安装和配置hexo"></a>安装和配置hexo</h2><pre><code>`npm install -g hexo`
+`npm install -g hexo-cli`
+`npm install hexo --save`
+</code></pre><h2 id="使用Hexo创建博客框架"><a href="#使用Hexo创建博客框架" class="headerlink" title="使用Hexo创建博客框架"></a>使用Hexo创建博客框架</h2><pre><code>1、 在D盘新建一个文件夹 hexo，右键打开 Git Bash Here ，执行以下命令
+     * hexo  init
+     * npm   install
+     * hexo  g   --生成博客静态页
+     * hexo  s   --本地发布博客，访问地址 localhost：4000
+</code></pre><h2 id="使用GitHub-Pages建立博客站点"><a href="#使用GitHub-Pages建立博客站点" class="headerlink" title="使用GitHub Pages建立博客站点"></a>使用GitHub Pages建立博客站点</h2><pre><code>GitHub Pages，是用来托管GitHub上静态网页的免费站点，那GitHub Pages具体有哪些功能呢：
+
+    * 有300M免费空间，资料自己管理，保存可靠；
     * 享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；
     * 可以使用很多现成的博客框架，搭建过程简单快速。
 1、注册一个github账号：https://github.com
