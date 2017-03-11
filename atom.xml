@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-11T16:41:56.508Z</updated>
+  <updated>2017-03-11T16:47:32.635Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
     <published>2017-03-08T17:48:41.000Z</published>
-    <updated>2017-03-11T16:41:56.508Z</updated>
+    <updated>2017-03-11T16:47:32.635Z</updated>
     
     <content type="html"><![CDATA[<h2 id="为什么选择使用Hexo在github上搭建博客"><a href="#为什么选择使用Hexo在github上搭建博客" class="headerlink" title="为什么选择使用Hexo在github上搭建博客"></a>为什么选择使用Hexo在github上搭建博客</h2><h5 id="博客搭建的三个阶段"><a href="#博客搭建的三个阶段" class="headerlink" title="博客搭建的三个阶段"></a>博客搭建的三个阶段</h5><p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。<br>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。<br>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。<br>第一阶段最简单，在csdn、博客园或者其他博客网站上注册一个账号就算开个blog了。第二阶段功能强大，购买空间之后就能创建动态网站，然而还要自己写代码，对于工作党来说，时间宝贵，花费在这个上面也提升不了多少自己的价值。而搭建该博客的目的是在于提供一种形式让自己去总结自己的工作经验、技术经验，也当作一个分享。所以，我选择的是第三种方法。</p>
 <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo是一个简单、快速、强大的静态博客框架,出自台湾大学生tommy351之手。使用Jekyll搭建个人博客的过程，确实要繁琐许多。相比之下Hexo更轻便更快捷，下面是Hexo官网强调Hexo的四大特点：</p>
@@ -41,23 +41,18 @@
 <ul>
 <li>&emsp;有300M免费空间，资料自己管理，保存可靠；</li>
 <li>&emsp;享受 GitHub 的便利，上面有很多大牛，眼界会开阔很多；</li>
-<li>&emsp;可以使用很多现成的博客框架，搭建过程简单快速。<h3 id="1-注册一个github账号：https-github-com"><a href="#1-注册一个github账号：https-github-com" class="headerlink" title="1. 注册一个github账号：https://github.com"></a>1. 注册一个github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></h3><h3 id="2-创建一个-github-io的仓库-位置为github账号，此处必须一致！"><a href="#2-创建一个-github-io的仓库-位置为github账号，此处必须一致！" class="headerlink" title="2. 创建一个.github.io的仓库, 位置为github账号，此处必须一致！"></a>2. 创建一个<strong><strong>.github.io的仓库, </strong></strong>位置为github账号，此处必须一致！</h3><h3 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3. 配置git"></a>3. 配置git</h3>&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*git config --global user.email &quot;github邮箱&quot;</div><div class="line">*git config --global user.name &quot;github名字&quot;</div></pre></td></tr></table></figure>
-</li>
+<li>&emsp;可以使用很多现成的博客框架，搭建过程简单快速。<h6 id="1-注册一个github账号：https-github-com"><a href="#1-注册一个github账号：https-github-com" class="headerlink" title="1. 注册一个github账号：https://github.com"></a>1. 注册一个github账号：<a href="https://github.com" target="_blank" rel="external">https://github.com</a></h6><h6 id="2-创建一个-github-io的仓库-位置为github账号，此处必须一致！"><a href="#2-创建一个-github-io的仓库-位置为github账号，此处必须一致！" class="headerlink" title="2. 创建一个.github.io的仓库, 位置为github账号，此处必须一致！"></a>2. 创建一个<strong><strong>.github.io的仓库, </strong></strong>位置为github账号，此处必须一致！</h6><h6 id="3-配置git"><a href="#3-配置git" class="headerlink" title="3. 配置git"></a>3. 配置git</h6>&emsp;&emsp;&emsp;全局配置下邮箱和名字（注册github时的邮箱和账号）,命令如下<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">*git config --global user.email &quot;github邮箱&quot;</div><div class="line">*git config --global user.name &quot;github名字&quot;</div></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 <p>&emsp;&emsp;&emsp;配置SSH,执行下面命令生成SSH<br>                <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*ssh-keygen      --敲三次回车，既可以生成id_rsa.pub文件，这里面就是SSH key的内容</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;&emsp;打开你的github,点击Setting -&gt; deploy key -&gt; add deploy ,将id_rsa.pub文件内容粘贴进去，并勾选allow write access<br>&emsp;&emsp;&emsp;判断SSH是否配置好,命令如下：<br>                <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*ssh -T git@github.com</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;&emsp;出现Hi CoderTian! You’ve successfully authenticated, but GitHub does not provide shell access.就表示你已经配置好了SSH</p>
 <h3 id="4、配置本地Hexo"><a href="#4、配置本地Hexo" class="headerlink" title="4、配置本地Hexo"></a>4、配置本地Hexo</h3><p>&emsp;&emsp;&emsp;打开Hexo目录下的_config.yml，拉倒最下面 配置为这样子,只需要把xiaosecond改为你自己的github用户名就可以了。<br>                  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*deploy:</div><div class="line">*type: git</div><div class="line">*repository:  git@github.com:xiaosecond/xiaosecond.github.io.git</div><div class="line">*branch: master</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;&emsp;保存之后回到hexo 根目录，依次执行如下命令：<br>                  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*hexo  clean</div><div class="line">*hexo  g</div><div class="line">*hexo  d</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;&emsp;显示以下内容表示上传成功！<br><code>&amp;emsp;&amp;emsp;&amp;emsp;To github.com:xiaosecond/xiaosecond.github.io.git</code><br><code>&amp;emsp;&amp;emsp;&amp;emsp;+ 662555e...23556e2 HEAD -&gt; master (forced update)</code><br><code>&amp;emsp;&amp;emsp;&amp;emsp;INFO  Deploy done: git</code><br>&emsp;&emsp;&emsp;打开你的github,点击Setting -&gt; options -&gt;  GitHub Pages  开启主页功能如果成功的话在浏览器输入(<a href="http://xiaosecond.github.io" target="_blank" rel="external">http://xiaosecond.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。<br>&emsp;&emsp;&emsp;绑定域名<br>         1、ping到 github 上的ip,命令如下;</p>
-<pre><code>   * ping  xiaosecond.github.io
-2、登陆阿里云，把获取的IP绑定到域名上，首先找到控制台--&gt;产品与服务--&gt;域名--&gt;域名列表
-3、在xiaosecond.github.io的根目录下添加CNAME,具体就是在Hexo目录里的source文件下添加
-   一个名为CNAME的文件，注意这个文件是没有后缀的，千万不要设置成.txt文本文件，文件的
-   内容就是域名，格式如：
-   * xiaosecond.top
-  添加后部署文件，这个时候再试，应该就成功了
-</code></pre>]]></content>
+<p>&emsp;&emsp;&emsp;显示以下内容表示上传成功！<br>&emsp;&emsp;&emsp;&emsp;<code>To github.com:xiaosecond/xiaosecond.github.io.git</code><br>&emsp;&emsp;&emsp;&emsp;<code>+ 662555e...23556e2 HEAD -&gt; master (forced update)</code><br>&emsp;&emsp;&emsp;&emsp;<code>INFO  Deploy done: git</code><br>&emsp;&emsp;&emsp;打开你的github,点击Setting -&gt; options -&gt;  GitHub Pages  开启主页功能如果成功的话在浏览器输入(<a href="http://xiaosecond.github.io" target="_blank" rel="external">http://xiaosecond.github.io</a>) 就可以访问你的博客了。把用户名换为你自己的。<br>&emsp;&emsp;&emsp;绑定域名<br>&emsp;&emsp;&emsp;&emsp;(1)、ping到 github 上的ip,命令如下;<br>           <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*ping  xiaosecond.github.io</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;(2)、登陆阿里云，把获取的IP绑定到域名上，首先找到控制台–&gt;产品与服务–&gt;域名–&gt;域名列表<br>&emsp;&emsp;&emsp;&emsp;(3)、在xiaosecond.github.io的根目录下添加CNAME,具体就是在Hexo目录里的source文件下添加一个名为CNAME的文件，注意这个文件是没有后缀的，千万不要设置成.txt文本文件，文件的<br>            内容就是域名，格式如：<br>            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*xiaosecond.top</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;添加后部署文件</p>
+]]></content>
     
     <summary type="html">
     
