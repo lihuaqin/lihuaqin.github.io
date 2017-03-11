@@ -350,6 +350,12 @@ code {
 .widget dt {
   font-weight: bold;
 }
+.foot-count {
+  color: #009688;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 0 5px;
+}
 #header {
   background: #fff;
   position: relative;
