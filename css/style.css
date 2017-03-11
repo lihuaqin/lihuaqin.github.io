@@ -1022,10 +1022,11 @@ a.article-title:hover {
   line-height: 1em;
   padding: 6px 15px;
   border-radius: 15px;
-  background: #f5f8f9;
-  color: #999;
-  text-shadow: 0 1px #fff;
+  background: #38b7ea;
+  color: #fff;
+  float: right;
   text-decoration: none;
+  margin-bottom: 15px;
 }
 .article-more-link a:hover {
   background: #38b7ea;
