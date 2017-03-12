@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-11T16:53:02.882Z</updated>
+  <updated>2017-03-12T02:36:32.446Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>电商项目小记</title>
+    <link href="http://blog.xiaosecond.top/2017/03/12/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://blog.xiaosecond.top/2017/03/12/电商项目小记/</id>
+    <published>2017-03-12T10:28:48.000Z</published>
+    <updated>2017-03-12T02:36:32.446Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><pre><code>*分布式
+*高并发、集群、负载均衡、高可用
+*海量数据
+*业务复杂
+*系统安全
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      生命在于折腾
+    
+    </summary>
+    
+      <category term="Blog" scheme="http://blog.xiaosecond.top/categories/Blog/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>hexo+github 搭建个人博客</title>
