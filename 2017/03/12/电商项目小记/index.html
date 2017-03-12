@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang1.png">
 <meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang2.png">
 <meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang3.png">
-<meta property="og:updated_time" content="2017-03-12T03:09:15.916Z">
+<meta property="og:updated_time" content="2017-03-12T03:16:36.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="电商项目小记">
 <meta name="twitter:description" content="生命在于折腾">
@@ -252,8 +252,18 @@
 <a id="more"></a>
 <h2 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h2><h4 id="emsp-系统功能图"><a href="#emsp-系统功能图" class="headerlink" title="&emsp;系统功能图"></a>&emsp;系统功能图</h4><p><img src="../../../../img/diansang1.png" alt=""></p>
 <h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。<br>前台系统：用户可以在前台系统中进行注册、登录、浏览商品、首页、下单等操作。<br>会员系统：用户可以在该系统中查询已下的订单、收藏的商品、我的优惠券、团购等信息。<br>订单系统：提供下单、查询订单、修改订单状态、定时处理订单。<br>搜索系统：提供商品的搜索功能。<br>单点登录系统：为多个系统之间提供用户登录凭证以及查询登录用户的信息。</p>
-<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h4 id="emsp-传统架构"><a href="#emsp-传统架构" class="headerlink" title="&emsp;传统架构"></a>&emsp;传统架构</h4><p><img src="../../../../img/diansang2.png" alt=""><br>&emsp; 缺点：<br>&emsp;&emsp; <em> 模块之间耦合度太高，其中一个升级其他都得升级<br>&emsp;&emsp; </em> 开发困难，各个团队开发最后都要整合一起<br>&emsp;&emsp; <em> 系统的扩展性差<br>&emsp;&emsp; </em> 不能灵活的进行分布式部署。</p>
+<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h4 id="emsp-传统架构"><a href="#emsp-传统架构" class="headerlink" title="&emsp;传统架构"></a>&emsp;传统架构</h4><p><img src="../../../../img/diansang2.png" alt=""><br>&emsp;&emsp; 缺点：<br>&emsp;&emsp;&emsp; </p>
+<ul>
+<li><p>模块之间耦合度太高，其中一个升级其他都得升级<br>&emsp;&emsp;&emsp; </p>
+</li>
+<li><p>开发困难，各个团队开发最后都要整合一起<br>&emsp;&emsp;&emsp; </p>
+</li>
+<li><p>系统的扩展性差<br>&emsp;&emsp;&emsp; </p>
+</li>
+<li><p>不能灵活的进行分布式部署。</p>
 <h4 id="emsp-分布式系统架构"><a href="#emsp-分布式系统架构" class="headerlink" title="&emsp;分布式系统架构"></a>&emsp;分布式系统架构</h4><p><img src="../../../../img/diansang3.png" alt=""><br>&emsp; 分布式架构：把系统拆成多个子系统<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp; <em> 把模块拆分，使用接口通信，降低模块之间的耦合度。<br>&emsp;&emsp;&emsp; </em> 把项目拆分成若干个子项目，不同的团队负责不同的子项目。<br>&emsp;&emsp;&emsp; <em> 增加功能时只需要再增加一个子项目，调用其他系统的接口就可以。<br>&emsp;&emsp;&emsp; </em> 可以灵活的进行分布式部署。<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp; * 系统之间交互需要使用远程通信，接口开发增加工作量。   </p>
+</li>
+</ul>
 
         
         </div>
