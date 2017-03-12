@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-12T08:19:12.285Z</updated>
+  <updated>2017-03-12T08:34:01.525Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,11 +20,15 @@
     <link href="http://blog.xiaosecond.top/2017/03/13/Eclipse%E9%85%8D%E7%BD%AEmaven/"/>
     <id>http://blog.xiaosecond.top/2017/03/13/Eclipse配置maven/</id>
     <published>2017-03-12T16:11:50.000Z</published>
-    <updated>2017-03-12T08:19:12.285Z</updated>
+    <updated>2017-03-12T08:34:01.525Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Maven管理的好处"><a href="#Maven管理的好处" class="headerlink" title="Maven管理的好处"></a>Maven管理的好处</h2><ul>
 <li>项目构建。Maven定义了软件开发的整套流程体系，并进行了封装，开发人员只需要指定项目的构建流程，无需针对每个流程编写自己的构建脚本。 </li>
-<li>依赖管理。除了项目构建，Maven最核心的功能是软件包的依赖管理，能够自动分析项目所需要的依赖软件包，并到Maven中心仓库去下载。<br>&emsp;&emsp; A)管理依赖的jar包<br>&emsp;&emsp; B)管理工程之间的依赖关系。</li>
+<li>依赖管理。除了项目构建，Maven最核心的功能是软件包的依赖管理，能够自动分析项目所需要的依赖软件包，并到Maven中心仓库去下载。<br>&emsp;&emsp; A)管理依赖的jar包<br>&emsp;&emsp; B)管理工程之间的依赖关系。<a id="more"></a>
+<h2 id="Eclipse配置maven"><a href="#Eclipse配置maven" class="headerlink" title="Eclipse配置maven"></a>Eclipse配置maven</h2></li>
+<li>下载apache-maven-3.0.4 ，下载地址：<a href="http://pan.baidu.com/s/1i51FMr7" target="_blank" rel="external">http://pan.baidu.com/s/1i51FMr7</a></li>
+<li>配置环境变量<br>&emsp;&emsp;1、新建环境变量MAVEN_HOME<br><img src="../../../../img/maven1.png" alt=""><br>&emsp;&emsp;2、新建环境变量MAVEN_HOME<br><img src="../../../../img/maven2.png" alt=""><br>&emsp;&emsp;完成之后，检测一下（必须先配好Java的环境变量）,进入CMD输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">echo %MAVEN_HOME%</div><div class="line"></div><div class="line">mvn -v</div></pre></td></tr></table></figure>
+</li>
 </ul>
 ]]></content>
     
