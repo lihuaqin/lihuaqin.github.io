@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-12T08:42:21.357Z</updated>
+  <updated>2017-03-12T08:51:55.111Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/13/Eclipse%E9%85%8D%E7%BD%AEmaven/"/>
     <id>http://blog.xiaosecond.top/2017/03/13/Eclipse配置maven/</id>
     <published>2017-03-12T16:11:50.000Z</published>
-    <updated>2017-03-12T08:42:21.357Z</updated>
+    <updated>2017-03-12T08:51:55.111Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Maven管理的好处"><a href="#Maven管理的好处" class="headerlink" title="Maven管理的好处"></a>Maven管理的好处</h2><ul>
 <li>项目构建。Maven定义了软件开发的整套流程体系，并进行了封装，开发人员只需要指定项目的构建流程，无需针对每个流程编写自己的构建脚本。 </li>
@@ -30,9 +30,10 @@
 <li><p>配置环境变量<br>&emsp;&emsp;1、新建环境变量MAVEN_HOME<br><img src="../../../../img/maven1.png" alt=""><br>&emsp;&emsp;2、新建环境变量MAVEN_HOME<br><img src="../../../../img/maven2.png" alt=""><br>&emsp;&emsp;完成之后，检测一下（必须先配好Java的环境变量）,进入CMD输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">echo %MAVEN_HOME%</div><div class="line">mvn -v</div></pre></td></tr></table></figure>
 </li>
-<li><p>eclipse中的maven重新定位一下，点击Window -&gt; Preference -&gt; Maven -&gt; Installation -&gt; Add进行设置</p>
+<li><p>eclipse中的maven重新定位一下，点击Window -&gt; Preference -&gt; Maven -&gt; Installation -&gt; Add进行设置<br><img src="../../../../img/maven3.png" alt=""></p>
 </li>
-<li><img src="../../../../img/maven3.png" alt=""></li>
+<li>配置本地仓库<br>&emsp;&emsp;1、手动创建本地仓库的地址为：D:\taotao_maven<br>&emsp;&emsp;2、修改C:\Program Files (x86)\apache-maven-3.0.4\conf\setting.xml文件，在<localrepository>节点下新增一行：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;localRepository&gt;D:\taotao_maven&lt;/localRepository&gt;</div></pre></td></tr></table></figure>
+</localrepository></li>
 </ul>
 ]]></content>
     
