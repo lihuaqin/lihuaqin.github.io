@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-12T03:30:42.846Z</updated>
+  <updated>2017-03-12T08:19:12.285Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -16,11 +16,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Eclipse配置maven</title>
+    <link href="http://blog.xiaosecond.top/2017/03/13/Eclipse%E9%85%8D%E7%BD%AEmaven/"/>
+    <id>http://blog.xiaosecond.top/2017/03/13/Eclipse配置maven/</id>
+    <published>2017-03-12T16:11:50.000Z</published>
+    <updated>2017-03-12T08:19:12.285Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Maven管理的好处"><a href="#Maven管理的好处" class="headerlink" title="Maven管理的好处"></a>Maven管理的好处</h2><ul>
+<li>项目构建。Maven定义了软件开发的整套流程体系，并进行了封装，开发人员只需要指定项目的构建流程，无需针对每个流程编写自己的构建脚本。 </li>
+<li>依赖管理。除了项目构建，Maven最核心的功能是软件包的依赖管理，能够自动分析项目所需要的依赖软件包，并到Maven中心仓库去下载。<br>&emsp;&emsp; A)管理依赖的jar包<br>&emsp;&emsp; B)管理工程之间的依赖关系。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      生命在于折腾
+    
+    </summary>
+    
+      <category term="java" scheme="http://blog.xiaosecond.top/categories/java/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>电商项目小记</title>
     <link href="http://blog.xiaosecond.top/2017/03/12/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/"/>
     <id>http://blog.xiaosecond.top/2017/03/12/电商项目小记/</id>
     <published>2017-03-12T10:28:48.000Z</published>
-    <updated>2017-03-12T03:30:42.846Z</updated>
+    <updated>2017-03-12T08:15:45.282Z</updated>
     
     <content type="html"><![CDATA[<h2 id="电商行业发展"><a href="#电商行业发展" class="headerlink" title="电商行业发展"></a>电商行业发展</h2><p>&emsp;&emsp;近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。<br>&emsp;&emsp;中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。</p>
 <h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><ul>
@@ -53,7 +77,7 @@
     
     </summary>
     
-      <category term="Blog" scheme="http://blog.xiaosecond.top/categories/Blog/"/>
+      <category term="java" scheme="http://blog.xiaosecond.top/categories/java/"/>
     
     
   </entry>
