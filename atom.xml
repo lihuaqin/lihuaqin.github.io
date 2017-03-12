@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-12T02:56:58.848Z</updated>
+  <updated>2017-03-12T03:09:15.916Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/12/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/"/>
     <id>http://blog.xiaosecond.top/2017/03/12/电商项目小记/</id>
     <published>2017-03-12T10:28:48.000Z</published>
-    <updated>2017-03-12T02:56:58.848Z</updated>
+    <updated>2017-03-12T03:09:15.916Z</updated>
     
     <content type="html"><![CDATA[<h2 id="电商行业发展"><a href="#电商行业发展" class="headerlink" title="电商行业发展"></a>电商行业发展</h2><p>&emsp;&emsp;近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。<br>&emsp;&emsp;中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。</p>
 <h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><ul>
@@ -32,6 +32,9 @@
 </ul>
 <a id="more"></a>
 <h2 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h2><h4 id="emsp-系统功能图"><a href="#emsp-系统功能图" class="headerlink" title="&emsp;系统功能图"></a>&emsp;系统功能图</h4><p><img src="../../../../img/diansang1.png" alt=""></p>
+<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。<br>前台系统：用户可以在前台系统中进行注册、登录、浏览商品、首页、下单等操作。<br>会员系统：用户可以在该系统中查询已下的订单、收藏的商品、我的优惠券、团购等信息。<br>订单系统：提供下单、查询订单、修改订单状态、定时处理订单。<br>搜索系统：提供商品的搜索功能。<br>单点登录系统：为多个系统之间提供用户登录凭证以及查询登录用户的信息。</p>
+<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h4 id="emsp-传统架构"><a href="#emsp-传统架构" class="headerlink" title="&emsp;传统架构"></a>&emsp;传统架构</h4><p><img src="../../../../img/diansang2.png" alt=""><br>&emsp; 缺点：<br>&emsp;&emsp; <em> 模块之间耦合度太高，其中一个升级其他都得升级<br>&emsp;&emsp; </em> 开发困难，各个团队开发最后都要整合一起<br>&emsp;&emsp; <em> 系统的扩展性差<br>&emsp;&emsp; </em> 不能灵活的进行分布式部署。</p>
+<h4 id="emsp-分布式系统架构"><a href="#emsp-分布式系统架构" class="headerlink" title="&emsp;分布式系统架构"></a>&emsp;分布式系统架构</h4><p><img src="../../../../img/diansang3.png" alt=""><br>&emsp; 分布式架构：把系统拆成多个子系统<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp; <em> 把模块拆分，使用接口通信，降低模块之间的耦合度。<br>&emsp;&emsp;&emsp; </em> 把项目拆分成若干个子项目，不同的团队负责不同的子项目。<br>&emsp;&emsp;&emsp; <em> 增加功能时只需要再增加一个子项目，调用其他系统的接口就可以。<br>&emsp;&emsp;&emsp; </em> 可以灵活的进行分布式部署。<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp; * 系统之间交互需要使用远程通信，接口开发增加工作量。   </p>
 ]]></content>
     
     <summary type="html">
