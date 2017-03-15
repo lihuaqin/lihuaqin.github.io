@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-14T15:22:05.789Z</updated>
+  <updated>2017-03-15T05:55:16.148Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -16,11 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux下安装Mysql</title>
+    <link href="http://blog.xiaosecond.top/2017/03/15/Linux%E4%B8%8B%E5%AE%89%E8%A3%85Mysql/"/>
+    <id>http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/</id>
+    <published>2017-03-15T10:38:15.000Z</published>
+    <updated>2017-03-15T05:55:16.148Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、添加mysql组和mysql用户"><a href="#一、添加mysql组和mysql用户" class="headerlink" title="一、添加mysql组和mysql用户"></a>一、添加mysql组和mysql用户</h2><p>&emsp;&emsp;添加mysql组和mysql用户，用于设置mysql安装目录文件所有者和所属组，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure></p>
+<ul>
+<li>useradd -r参数表示mysql用户是系统用户，不可用于登录系统。</li>
+<li>useradd -g参数表示把mysql用户添加到mysql用户组中。<a id="more"></a>
+<h2 id="二、解压文件"><a href="#二、解压文件" class="headerlink" title="二、解压文件"></a>二、解压文件</h2>&emsp;&emsp;将二进制文件解压到指定的安装目录/usr/local，命令如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tar -zxvf /Ultrapower/test/mysql-5.7.13-Linux-glibc2.5-i686.tar.gz </div><div class="line">         --z:表示 tar 包是被 gzip 压缩过的</div><div class="line">         --x:把压缩文件解压出来</div><div class="line">         --v:显示解压进度</div><div class="line">         --f:指定被处理文件是 mysql-5.7.13-Linux-glibc2.5-i686.tar.gz</div><div class="line">mv mysql-5.7.13-linux-glibc2.5-i686 mysql   --更改mysql目录名称</div><div class="line">cd mysql            --进入mysql文件夹，也就是mysql所在的目录</div><div class="line">chown -R mysql .    --更改mysql目录所属的组和用户。更改权限</div><div class="line">chgrp -R mysql .    --注意空格隔开：&quot;mysql&quot;+&quot;空格&quot;+&quot;.&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、初始化-MySQL-配置表"><a href="#三、初始化-MySQL-配置表" class="headerlink" title="三、初始化 MySQL 配置表"></a>三、初始化 MySQL 配置表</h2><p>&emsp;&emsp;（1）、执行mysql_install_db脚本，对mysql中的data目录进行初始化并创建一些系统表格，<br>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir data </div><div class="line">bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;执行结果如下，注意最后一行，它给了root一个初始密码，后面要登录的时候要用到这个密码。<br><img src="../../../../img/linuxmysql1.png" alt=""><br>&emsp;&emsp;（2）、将mysql/目录下除了data/目录的所有文件，改回root用户所有，mysql用户只需作为mysql/data/目录下所有文件的所有者，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R root . </div><div class="line">chown -R mysql data</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;（3）、复制配置文件，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp support-files/my-default.cnf /etc/my.cnf</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如出现下图错误，进入etc目录删除my.cnf文件后重新执行复制配置文件命令<br><img src="../../../../img/linuxmysql2.png" alt=""><br>&emsp;&emsp;（4）、修改my.cnf关键配置<br><img src="../../../../img/linuxmysql3.png" alt=""><br>&emsp;&emsp;注意，tmp目录不存在，请创建之。否则会出错     创建后要赋予mysql权限，chown -R mysql:mysql tmp<br> 如果mysql.sock指定到/tmp以外的目录，需要在my.cnf中添加[client]并且指定socket位置，<br> 否则登录mysql时会报错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)<br> 应该是，默认会找tmp目录下的sock文件<br>&emsp;&emsp;5、修改my.cnf关键配置</p>
+<h2 id="四、将mysqld服务加入开机自启动项"><a href="#四、将mysqld服务加入开机自启动项" class="headerlink" title="四、将mysqld服务加入开机自启动项"></a>四、将mysqld服务加入开机自启动项</h2><p>&emsp;&emsp; support-files/mysql.server 拷贝为/etc/init.d/mysql并设置运行权限，这样就可以使用service mysql命令启动/停止服务，否则就只能使用{mysql}/bin/mysqld_safe &amp;命令来启动服务还需要把mysql.server中basedir的相关路径，改为自定义的路径/usr/local/mysql，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cp mysql.server /etc/init.d/mysql   --拷贝</div><div class="line">chmod +x /etc/init.d/mysql          --设置运行权限</div><div class="line">chkconfig --add mysql               --把mysql注册为开机启动的服务</div><div class="line">chkconfig --list mysql              -- 查看是否添加成功</div><div class="line">  --mysqld          0:关闭  1:关闭  2:启用  3:启用  4:启用  5:启用  6:关闭</div></pre></td></tr></table></figure></p>
+<h2 id="五、mysql服务的开启和关闭"><a href="#五、mysql服务的开启和关闭" class="headerlink" title="五、mysql服务的开启和关闭"></a>五、mysql服务的开启和关闭</h2><p>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql start   或者   serivce mysql start  或者  bin/mysqld_safe&amp; </div><div class="line">/etc/init.d/mysql stop    或者   service mysql stop   或者  bin/mysqladmin -uroot -p</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：在bin/mysqld_safe&amp;这个启动脚本里已默认设置–user=mysql；在脚本末尾加&amp;表示设置此进程为后台进程，区别就是在控制台输入bg，即可将当前进  程转入后台，  当前shell  可进行其他操作。<br> bin/mysqladmin -uroot -p  (注意此时的root是指mysql的root用户)</p>
+<p>&emsp;&emsp;需要把mysqll加入到环境变量中，或者为mysql建立软链接,否则运行mysql命令会出现   -bash: mysql:command not found<br>不加环境变量，就要使用bin/mysql -uroot -p 或者bin/mysqladmin -uroot -p  命令来登录mysql服务<br>建立软链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/mysql/bin/mysql  /usr/local/bin</div><div class="line">ln -s /usr/local/mysql/bin/mysqladmin  /usr/local/bin</div><div class="line">ln -s /usr/local/test/mysql/bin/mysqld_safe  /usr/local/bin</div></pre></td></tr></table></figure></p>
+<h2 id="六、加入环境变量"><a href="#六、加入环境变量" class="headerlink" title="六、加入环境变量"></a>六、加入环境变量</h2><p>&emsp;&emsp;修改/etc/profile文件使其永久性生效，并对所有系统用户生效，在文件末尾加上如下两行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PATH=$PATH:/usr/local/mysql:/usr/local/mysql/bin</div><div class="line">export PATH</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后：执行 命令source /etc/profile或 执行点命令 ./profile使其修改生效，执行完可通过echo $PATH命令查看是否添加成功。<br><img src="../../../../img/linuxmysql4.png" alt=""></p>
+<h2 id="七、登录mysql服务、修改密码"><a href="#七、登录mysql服务、修改密码" class="headerlink" title="七、登录mysql服务、修改密码"></a>七、登录mysql服务、修改密码</h2><p>&emsp;&emsp;（1）、执行：mysql -uroot -p生成的密码(初始化配置表时生成的密码)</p>
+<p>&emsp;&emsp;（2）、执行：set password=password(‘123456’); 修改密码<br><img src="../../../../img/linuxmysql5.png" alt=""></p>
+<h2 id="八、远程登陆用户设置"><a href="#八、远程登陆用户设置" class="headerlink" title="八、远程登陆用户设置"></a>八、远程登陆用户设置</h2><p>&emsp;&emsp; （1）、修改user表中数据，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p123456  --登陆mysql</div><div class="line">show databases;        --查看库</div><div class="line">use mysql;             --选择mysql库</div><div class="line">show tables;           --查看表</div><div class="line">select Host , User ,authentication_string , password_last_changed  from user;  --查看user表数据</div><div class="line">update user set host=&apos;%&apos; where user=&apos;root&apos; and host=&apos;localhost&apos;;  --将host为localhost的root用户修改为可支持远程登陆</div></pre></td></tr></table></figure></p>
+<p><img src="../../../../img/linuxmysql6.png" alt=""><br><img src="../../../../img/linuxmysql7.png" alt=""><br>&emsp;&emsp; （2）、开启防火墙，将mysql服务添加进防火墙，开启3306端口，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --add-service=mysql --permanent    --将mysql服务添加进防火墙(permanent表示永久)</div><div class="line">firewall-cmd  -reload                           --重启防火墙</div><div class="line">firewall-cmd --add-port=3306/tcp --permanent    --添加3306端口，永久生效</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      生命在于折腾
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://blog.xiaosecond.top/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://blog.xiaosecond.top/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Eclipse配置maven</title>
     <link href="http://blog.xiaosecond.top/2017/03/13/Eclipse%E9%85%8D%E7%BD%AEmaven/"/>
     <id>http://blog.xiaosecond.top/2017/03/13/Eclipse配置maven/</id>
     <published>2017-03-12T16:11:50.000Z</published>
-    <updated>2017-03-14T15:22:05.789Z</updated>
+    <updated>2017-03-15T05:49:06.104Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Maven管理的好处"><a href="#Maven管理的好处" class="headerlink" title="Maven管理的好处"></a>Maven管理的好处</h2><ul>
 <li>项目构建。Maven定义了软件开发的整套流程体系，并进行了封装，开发人员只需要指定项目的构建流程，无需针对每个流程编写自己的构建脚本。 </li>
@@ -128,6 +171,8 @@
       <category term="java" scheme="http://blog.xiaosecond.top/categories/java/"/>
     
     
+      <category term="java" scheme="http://blog.xiaosecond.top/tags/java/"/>
+    
   </entry>
   
   <entry>
@@ -135,7 +180,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/12/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE%E5%B0%8F%E8%AE%B0/"/>
     <id>http://blog.xiaosecond.top/2017/03/12/电商项目小记/</id>
     <published>2017-03-12T10:28:48.000Z</published>
-    <updated>2017-03-12T08:15:45.282Z</updated>
+    <updated>2017-03-15T05:48:23.632Z</updated>
     
     <content type="html"><![CDATA[<h2 id="电商行业发展"><a href="#电商行业发展" class="headerlink" title="电商行业发展"></a>电商行业发展</h2><p>&emsp;&emsp;近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。<br>&emsp;&emsp;中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。</p>
 <h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><ul>
@@ -171,6 +216,8 @@
       <category term="java" scheme="http://blog.xiaosecond.top/categories/java/"/>
     
     
+      <category term="java" scheme="http://blog.xiaosecond.top/tags/java/"/>
+    
   </entry>
   
   <entry>
@@ -178,7 +225,7 @@
     <link href="http://blog.xiaosecond.top/2017/03/09/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/</id>
     <published>2017-03-08T17:48:41.000Z</published>
-    <updated>2017-03-11T16:53:02.882Z</updated>
+    <updated>2017-03-15T05:48:54.822Z</updated>
     
     <content type="html"><![CDATA[<h2 id="为什么选择使用Hexo在github上搭建博客"><a href="#为什么选择使用Hexo在github上搭建博客" class="headerlink" title="为什么选择使用Hexo在github上搭建博客"></a>为什么选择使用Hexo在github上搭建博客</h2><h5 id="博客搭建的三个阶段"><a href="#博客搭建的三个阶段" class="headerlink" title="博客搭建的三个阶段"></a>博客搭建的三个阶段</h5><p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。<br>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。<br>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。<br>第一阶段最简单，在csdn、博客园或者其他博客网站上注册一个账号就算开个blog了。第二阶段功能强大，购买空间之后就能创建动态网站，然而还要自己写代码，对于工作党来说，时间宝贵，花费在这个上面也提升不了多少自己的价值。而搭建该博客的目的是在于提供一种形式让自己去总结自己的工作经验、技术经验，也当作一个分享。所以，我选择的是第三种方法。</p>
 <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo是一个简单、快速、强大的静态博客框架,出自台湾大学生tommy351之手。使用Jekyll搭建个人博客的过程，确实要繁琐许多。相比之下Hexo更轻便更快捷，下面是Hexo官网强调Hexo的四大特点：</p>
@@ -220,6 +267,8 @@
     
       <category term="Blog" scheme="http://blog.xiaosecond.top/categories/Blog/"/>
     
+    
+      <category term="Blog" scheme="http://blog.xiaosecond.top/tags/Blog/"/>
     
   </entry>
   

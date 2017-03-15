@@ -3,22 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>电商项目小记 | 程序猿~xiaosecond</title>
+    <title>Linux下安装Mysql | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="生命在于折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电商项目小记">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/12/电商项目小记/index.html">
+<meta property="og:title" content="Linux下安装Mysql">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang1.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang2.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang3.png">
-<meta property="og:updated_time" content="2017-03-15T05:48:23.632Z">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql1.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql2.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql3.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql4.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql5.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql6.png">
+<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql7.png">
+<meta property="og:updated_time" content="2017-03-15T05:55:16.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电商项目小记">
+<meta name="twitter:title" content="Linux下安装Mysql">
 <meta name="twitter:description" content="生命在于折腾">
-<meta name="twitter:image" content="http://blog.xiaosecond.top/../../../../img/diansang1.png">
+<meta name="twitter:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql1.png">
     
 
     
@@ -203,7 +207,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-电商项目小记" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Linux下安装Mysql" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -211,7 +215,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            电商项目小记
+            Linux下安装Mysql
         </h1>
     
 
@@ -220,8 +224,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/12/电商项目小记/">
-            <time datetime="2017-03-12T10:28:48.000Z" itemprop="datePublished">2017-03-12</time>
+        <a href="/2017/03/15/Linux下安装Mysql/">
+            <time datetime="2017-03-15T10:38:15.000Z" itemprop="datePublished">2017-03-15</time>
         </a>
     </div>
 
@@ -229,13 +233,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
+        <a class="tag-link" href="/tags/Linux/">Linux</a>
     </div>
 
                     </div>
@@ -246,29 +250,27 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="电商行业发展"><a href="#电商行业发展" class="headerlink" title="电商行业发展"></a>电商行业发展</h2><p>&emsp;&emsp;近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。<br>&emsp;&emsp;中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。</p>
-<h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><ul>
-<li>分布式</li>
-<li>高并发、集群、负载均衡、高可用</li>
-<li>海量数据</li>
-<li>业务复杂</li>
-<li>系统安全</li>
+            <h2 id="一、添加mysql组和mysql用户"><a href="#一、添加mysql组和mysql用户" class="headerlink" title="一、添加mysql组和mysql用户"></a>一、添加mysql组和mysql用户</h2><p>&emsp;&emsp;添加mysql组和mysql用户，用于设置mysql安装目录文件所有者和所属组，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure></p>
+<ul>
+<li>useradd -r参数表示mysql用户是系统用户，不可用于登录系统。</li>
+<li>useradd -g参数表示把mysql用户添加到mysql用户组中。<a id="more"></a>
+<h2 id="二、解压文件"><a href="#二、解压文件" class="headerlink" title="二、解压文件"></a>二、解压文件</h2>&emsp;&emsp;将二进制文件解压到指定的安装目录/usr/local，命令如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tar -zxvf /Ultrapower/test/mysql-5.7.13-Linux-glibc2.5-i686.tar.gz </div><div class="line">         --z:表示 tar 包是被 gzip 压缩过的</div><div class="line">         --x:把压缩文件解压出来</div><div class="line">         --v:显示解压进度</div><div class="line">         --f:指定被处理文件是 mysql-5.7.13-Linux-glibc2.5-i686.tar.gz</div><div class="line">mv mysql-5.7.13-linux-glibc2.5-i686 mysql   --更改mysql目录名称</div><div class="line">cd mysql            --进入mysql文件夹，也就是mysql所在的目录</div><div class="line">chown -R mysql .    --更改mysql目录所属的组和用户。更改权限</div><div class="line">chgrp -R mysql .    --注意空格隔开：&quot;mysql&quot;+&quot;空格&quot;+&quot;.&quot;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<a id="more"></a>
-<h2 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h2><h4 id="emsp-系统功能图"><a href="#emsp-系统功能图" class="headerlink" title="&emsp;系统功能图"></a>&emsp;系统功能图</h4><p><img src="../../../../img/diansang1.png" alt=""></p>
-<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。<br>前台系统：用户可以在前台系统中进行注册、登录、浏览商品、首页、下单等操作。<br>会员系统：用户可以在该系统中查询已下的订单、收藏的商品、我的优惠券、团购等信息。<br>订单系统：提供下单、查询订单、修改订单状态、定时处理订单。<br>搜索系统：提供商品的搜索功能。<br>单点登录系统：为多个系统之间提供用户登录凭证以及查询登录用户的信息。</p>
-<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h4 id="emsp-传统架构"><a href="#emsp-传统架构" class="headerlink" title="&emsp;传统架构"></a>&emsp;传统架构</h4><p><img src="../../../../img/diansang2.png" alt=""><br>&emsp;&emsp; 缺点：</p>
-<p>&emsp;&emsp;&emsp;&emsp; 1.模块之间耦合度太高，其中一个升级其他都得升级<br>&emsp;&emsp;&emsp;&emsp; 2.开发困难，各个团队开发最后都要整合一起<br>&emsp;&emsp;&emsp;&emsp; 3.系统的扩展性差<br>&emsp;&emsp;&emsp;&emsp; 4.不能灵活的进行分布式部署。</p>
-<h4 id="emsp-分布式系统架构"><a href="#emsp-分布式系统架构" class="headerlink" title="&emsp;分布式系统架构"></a>&emsp;分布式系统架构</h4><p><img src="../../../../img/diansang3.png" alt=""><br>&emsp; 分布式架构：把系统拆成多个子系统<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp;&emsp; 1.把模块拆分，使用接口通信，降低模块之间的耦合度。<br>&emsp;&emsp;&emsp;&emsp; 2.把项目拆分成若干个子项目，不同的团队负责不同的子项目。<br>&emsp;&emsp;&emsp;&emsp; 3.增加功能时只需要再增加一个子项目，调用其他系统的接口就可以。<br>&emsp;&emsp;&emsp;&emsp; 4.可以灵活的进行分布式部署。<br>&emsp;&emsp; 缺点：<br>&emsp;&emsp;&emsp;&emsp; 1.系统之间交互需要使用远程通信，接口开发增加工作量。 </p>
-<h4 id="emsp-技术选型"><a href="#emsp-技术选型" class="headerlink" title="&emsp;技术选型"></a>&emsp;技术选型</h4><ul>
-<li>Spring、SpringMVC、Mybatis</li>
-<li>JSP、JSTL、jQuery、jQuery plugin、EasyUI、KindEditor（富文本编辑器）、CSS+DIV</li>
-<li>Redis（缓存服务器）</li>
-<li>Solr（搜索）</li>
-<li>httpclient（调用系统服务）</li>
-<li>Mysql</li>
-<li>Nginx（web服务器）</li>
-</ul>
+<h2 id="三、初始化-MySQL-配置表"><a href="#三、初始化-MySQL-配置表" class="headerlink" title="三、初始化 MySQL 配置表"></a>三、初始化 MySQL 配置表</h2><p>&emsp;&emsp;（1）、执行mysql_install_db脚本，对mysql中的data目录进行初始化并创建一些系统表格，<br>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir data </div><div class="line">bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;执行结果如下，注意最后一行，它给了root一个初始密码，后面要登录的时候要用到这个密码。<br><img src="../../../../img/linuxmysql1.png" alt=""><br>&emsp;&emsp;（2）、将mysql/目录下除了data/目录的所有文件，改回root用户所有，mysql用户只需作为mysql/data/目录下所有文件的所有者，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R root . </div><div class="line">chown -R mysql data</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;（3）、复制配置文件，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp support-files/my-default.cnf /etc/my.cnf</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;如出现下图错误，进入etc目录删除my.cnf文件后重新执行复制配置文件命令<br><img src="../../../../img/linuxmysql2.png" alt=""><br>&emsp;&emsp;（4）、修改my.cnf关键配置<br><img src="../../../../img/linuxmysql3.png" alt=""><br>&emsp;&emsp;注意，tmp目录不存在，请创建之。否则会出错     创建后要赋予mysql权限，chown -R mysql:mysql tmp<br> 如果mysql.sock指定到/tmp以外的目录，需要在my.cnf中添加[client]并且指定socket位置，<br> 否则登录mysql时会报错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)<br> 应该是，默认会找tmp目录下的sock文件<br>&emsp;&emsp;5、修改my.cnf关键配置</p>
+<h2 id="四、将mysqld服务加入开机自启动项"><a href="#四、将mysqld服务加入开机自启动项" class="headerlink" title="四、将mysqld服务加入开机自启动项"></a>四、将mysqld服务加入开机自启动项</h2><p>&emsp;&emsp; support-files/mysql.server 拷贝为/etc/init.d/mysql并设置运行权限，这样就可以使用service mysql命令启动/停止服务，否则就只能使用{mysql}/bin/mysqld_safe &amp;命令来启动服务还需要把mysql.server中basedir的相关路径，改为自定义的路径/usr/local/mysql，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cp mysql.server /etc/init.d/mysql   --拷贝</div><div class="line">chmod +x /etc/init.d/mysql          --设置运行权限</div><div class="line">chkconfig --add mysql               --把mysql注册为开机启动的服务</div><div class="line">chkconfig --list mysql              -- 查看是否添加成功</div><div class="line">  --mysqld          0:关闭  1:关闭  2:启用  3:启用  4:启用  5:启用  6:关闭</div></pre></td></tr></table></figure></p>
+<h2 id="五、mysql服务的开启和关闭"><a href="#五、mysql服务的开启和关闭" class="headerlink" title="五、mysql服务的开启和关闭"></a>五、mysql服务的开启和关闭</h2><p>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql start   或者   serivce mysql start  或者  bin/mysqld_safe&amp; </div><div class="line">/etc/init.d/mysql stop    或者   service mysql stop   或者  bin/mysqladmin -uroot -p</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：在bin/mysqld_safe&amp;这个启动脚本里已默认设置–user=mysql；在脚本末尾加&amp;表示设置此进程为后台进程，区别就是在控制台输入bg，即可将当前进  程转入后台，  当前shell  可进行其他操作。<br> bin/mysqladmin -uroot -p  (注意此时的root是指mysql的root用户)</p>
+<p>&emsp;&emsp;需要把mysqll加入到环境变量中，或者为mysql建立软链接,否则运行mysql命令会出现   -bash: mysql:command not found<br>不加环境变量，就要使用bin/mysql -uroot -p 或者bin/mysqladmin -uroot -p  命令来登录mysql服务<br>建立软链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/mysql/bin/mysql  /usr/local/bin</div><div class="line">ln -s /usr/local/mysql/bin/mysqladmin  /usr/local/bin</div><div class="line">ln -s /usr/local/test/mysql/bin/mysqld_safe  /usr/local/bin</div></pre></td></tr></table></figure></p>
+<h2 id="六、加入环境变量"><a href="#六、加入环境变量" class="headerlink" title="六、加入环境变量"></a>六、加入环境变量</h2><p>&emsp;&emsp;修改/etc/profile文件使其永久性生效，并对所有系统用户生效，在文件末尾加上如下两行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PATH=$PATH:/usr/local/mysql:/usr/local/mysql/bin</div><div class="line">export PATH</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后：执行 命令source /etc/profile或 执行点命令 ./profile使其修改生效，执行完可通过echo $PATH命令查看是否添加成功。<br><img src="../../../../img/linuxmysql4.png" alt=""></p>
+<h2 id="七、登录mysql服务、修改密码"><a href="#七、登录mysql服务、修改密码" class="headerlink" title="七、登录mysql服务、修改密码"></a>七、登录mysql服务、修改密码</h2><p>&emsp;&emsp;（1）、执行：mysql -uroot -p生成的密码(初始化配置表时生成的密码)</p>
+<p>&emsp;&emsp;（2）、执行：set password=password(‘123456’); 修改密码<br><img src="../../../../img/linuxmysql5.png" alt=""></p>
+<h2 id="八、远程登陆用户设置"><a href="#八、远程登陆用户设置" class="headerlink" title="八、远程登陆用户设置"></a>八、远程登陆用户设置</h2><p>&emsp;&emsp; （1）、修改user表中数据，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p123456  --登陆mysql</div><div class="line">show databases;        --查看库</div><div class="line">use mysql;             --选择mysql库</div><div class="line">show tables;           --查看表</div><div class="line">select Host , User ,authentication_string , password_last_changed  from user;  --查看user表数据</div><div class="line">update user set host=&apos;%&apos; where user=&apos;root&apos; and host=&apos;localhost&apos;;  --将host为localhost的root用户修改为可支持远程登陆</div></pre></td></tr></table></figure></p>
+<p><img src="../../../../img/linuxmysql6.png" alt=""><br><img src="../../../../img/linuxmysql7.png" alt=""><br>&emsp;&emsp; （2）、开启防火墙，将mysql服务添加进防火墙，开启3306端口，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --add-service=mysql --permanent    --将mysql服务添加进防火墙(permanent表示永久)</div><div class="line">firewall-cmd  -reload                           --重启防火墙</div><div class="line">firewall-cmd --add-port=3306/tcp --permanent    --添加3306端口，永久生效</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -316,7 +318,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://blog.xiaosecond.top/2017/03/12/电商项目小记/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/12/电商项目小记/">评论</a>
+        <a href="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/">评论</a>
     
 
         </footer>
@@ -325,19 +327,10 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2017/03/13/Eclipse配置maven/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Eclipse配置maven
-                
-            </div>
-        </a>
     
-    
-        <a href="/2017/03/09/hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/13/Eclipse配置maven/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">hexo+github 搭建个人博客</div>
+            <div class="article-nav-title">Eclipse配置maven</div>
         </a>
     
 </nav>
@@ -352,7 +345,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
 
             <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/12/电商项目小记/" data-title="电商项目小记" data-url="http://blog.xiaosecond.top/2017/03/12/电商项目小记/"></div>
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/15/Linux下安装Mysql/" data-title="Linux下安装Mysql" data-url="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/"></div>
             <!-- 多说评论框 end -->
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
@@ -470,9 +463,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/03/12/电商项目小记/';
+            this.page.url = 'http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/';
         
-        this.page.identifier = '电商项目小记';
+        this.page.identifier = 'Linux下安装Mysql';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
