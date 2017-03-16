@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Iptables详解 | 程序猿~xiaosecond</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="生命在于折腾">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Iptables详解">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/16/Iptables详解/index.html">
+<meta property="og:site_name" content="程序猿~xiaosecond">
+<meta property="og:description" content="生命在于折腾">
+<meta property="og:updated_time" content="2017-03-16T06:24:07.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Iptables详解">
+<meta name="twitter:description" content="生命在于折腾">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">程序猿~xiaosecond</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">目录</a>
+                
+                    <a class="main-nav-link" href="/.">关于我</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">目录</a></td>
+                
+                    <td><a class="main-nav-link" href="/.">关于我</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">李华钦</h2>
+            <h3 id="title"  style="margin: 1.6em 0em">
+                <span  style="margin-left: 0px;color: #b90404;font-weight:bold;font-style:italic;">不疯魔，不成活</span>
+            </h3>
+            <span id="location"><i class="fa fa-map-marker"></i>中国, 深圳</span>
+            <a id="follow" target="_blank" href="https://github.com/lihuaqin">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                7
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                6
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/lihuaqin" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://git.oschina.net/lihuaqin" target="_blank" title="git" class=tooltip>
+                            <i class="fa fa-git"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="mailto:1187673610@qq.com" target="_blank" title="envelope" class=tooltip>
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="http://weibo.com/" target="_blank" title="weibo" class=tooltip>
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=4&id=349365266&auto=1&height=32"></iframe>
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-Iptables详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Iptables详解
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/16/Iptables详解/">
+            <time datetime="2017-03-16T09:13:01.000Z" itemprop="datePublished">2017-03-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Iptables，Linux/">Iptables，Linux</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>&emsp;&emsp;Iptables是一个非常重要的工具，它是每一个防火墙上几乎必备的设置，也是我们在做大型网络的时候，为了很多原因而必须要设置的。</p>
+<h2 id="iptables的发展"><a href="#iptables的发展" class="headerlink" title="iptables的发展"></a>iptables的发展</h2><p>&emsp;&emsp;iptables的前身叫ipfirewall （内核1.x时代）,这是一个作者从freeBSD上移植过来的，能够工作在内核当中的，对数据包进行检测的一款简易访问控制工具。但是ipfirewall工作功能极其有限(它需要将所有的规则都放进内核当中，这样规则才能够运行起来，而放进内核，这个做法一般是极其困难的)。当内核发展到2.x系列的时候，软件更名为ipchains，它可以定义多条规则，将他们串起来，共同发挥作用，而现在，它叫做iptables，可以将规则组成一个列表，实现绝对详细的访问控制功能。他们都是工作在用户空间中，定义规则的工具，本身并不算是防火墙。它们定义的规则，可以让在内核空间当中的netfilter来读取，并且实现让防火墙工作。而放入内核的地方必须要是特定的位置，必须是tcp/ip的协议栈经过的地方。而这个tcp/ip协议栈必须经过的地方，可以实现读取规则的地方就叫做 netfilter.(网络过滤器)；内核空间中选择了5个位置：<br>&emsp;&emsp;1、内核空间中：从一个网络接口进来，到另一个网络接口去的<br>&emsp;&emsp;2、数据包从内核流入用户空间的<br>&emsp;&emsp;3、据包从用户空间流出的<br>&emsp;&emsp;4、进入/离开本机的外网接口<br>&emsp;&emsp;5、进入/离开本机的内网接口</p>
+<h2 id="iptables的工作机制"><a href="#iptables的工作机制" class="headerlink" title="iptables的工作机制"></a>iptables的工作机制</h2><p>&emsp;&emsp;从上面的发展我们知道了5个位置，来作为控制的地方，但是你有没有发现，其实前三个位置已经基本上能将路径彻底封锁了，但是为什么已经在进出的口设置了关卡之后还要在内部卡呢？ 由于数据包尚未进行路由决策，还不知道数据要走向哪里，所以在进出口是没办法实现数据过滤的。所以要在内核空间里设置转发的关卡，进入用户空间的关卡，从用户空间出去的关卡。那么，既然他们没什么用，那我们为什么还要放置他们呢？因为我们在做NAT和DNAT的时候，目标地址转换必须在路由之前转换。所以我们必须在外网而后内网的接口处进行设置关卡。这五个位置也被称为五个钩子函数（hook functions）,也叫五个规则链。<br>&emsp;&emsp;1、PREROUTING (路由前)<br>&emsp;&emsp;2、INPUT (数据包流入口)<br>&emsp;&emsp;3、FORWARD (转发管卡)<br>&emsp;&emsp;4、OUTPUT(数据包出口)<br>&emsp;&emsp;5、POSTROUTING（路由后）<br>&emsp;&emsp;这是NetFilter规定的五个规则链，任何一个数据包，只要经过本机，必将经过这五个链中的其中一个链。</p>
+<h2 id="防火墙的策略"><a href="#防火墙的策略" class="headerlink" title="防火墙的策略"></a>防火墙的策略</h2><p>&emsp;&emsp;防火墙策略一般分为两种，一种叫“通”策略，一种叫“堵”策略，通策略，默认门是关着的，必须要定义谁能进。堵策略则是，大门是洞开的，但是你必须有身份认证，否则不能进。所以我们要定义，让进来的进来，让出去的出去，所以通，是要全通，而堵，则是要选择。当我们定义的策略的时候，要分别定义多条功能，其中：定义数据包中允许或者不允许的策略，filter过滤的功能，而定义地址转换的功能的则是nat选项。为了让这些功能交替工作，我们制定出了“表”这个定义，来定义、区分各种不同的工作功能和处理方式。我们现在用的比较多个功能有3个：<br>&emsp;&emsp;1、filter 定义允许或者不允许的；对于filter来讲一般只能做在3个链上：INPUT ，FORWARD ，OUTPUT<br>&emsp;&emsp;2、nat 定义地址转换的；对于nat来讲一般也只能做在3个链上：PREROUTING ，OUTPUT ，POSTROUTING<br>&emsp;&emsp;3、mangle功能:修改报文原数据；而mangle则是5个链都可以做：PREROUTING，INPUT，FORWARD，OUTPUT，POSTROUTING<br>&emsp;&emsp;iptables/netfilter（这款软件）是工作在用户空间的，它可以让规则进行生效的，本身不是一种服务，而且规则是立即生效的。而我们iptables现在被做成了一个服务，可以进行启动，停止的。启动，则将规则直接生效，停止，则将规则撤销。iptables还支持自己定义链。但是自己定义的链，必须是跟某种特定的链关联起来的。在一个关卡设定，指定当有数据的时候专门去找某个特定的链来处理，当那个链处理完之后，再返回。接着在特定的链中继续检查。<br>&emsp;&emsp;注意：规则的次序非常关键，谁的规则越严格，应该放的越靠前，而检查规则的时候，是按照从上往下的方式进行检查的。</p>
+<h2 id="规则的写法"><a href="#规则的写法" class="headerlink" title="规则的写法"></a>规则的写法</h2><p>iptables定义规则的方式比较复杂,格式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">iptables [-t table] COMMAND chain CRETIRIA -j ACTION</div><div class="line">         -t table ：3个filter nat mangle</div><div class="line">         COMMAND：定义如何对规则进行管理</div><div class="line">         chain：指定你接下来的规则到底是在哪个链上操作的，当定义策略的时候，是可以省略的</div><div class="line">         CRETIRIA:指定匹配标准</div><div class="line">         -j ACTION :指定如何进行处理</div><div class="line"> 比如：不允许172.16.0.0/24的进行访问。</div><div class="line"> iptables -t filter -A INPUT -s 172.16.0.0/16 -p udp --dport 53 -j DROP</div><div class="line"> 当然你如果想拒绝的更彻底：</div><div class="line"> iptables -t filter -R INPUT 1 -s 172.16.0.0/16 -p udp --dport 53 -j REJECT</div><div class="line">  iptables -L -n -v	#查看定义规则的详细信息</div></pre></td></tr></table></figure></p>
+<h2 id="COMMAND详解"><a href="#COMMAND详解" class="headerlink" title="COMMAND详解"></a>COMMAND详解</h2><p>&emsp;&emsp;链管理命令（这都是立即生效的）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-P :设置默认策略的（设定默认门是关着的还是开着的）-P :设置默认策略的（设定默认门是关着的还是开着的）</div><div class="line">    iptables -P INPUT (DROP|ACCEPT)  默认是关的/默认是开的</div><div class="line">    iptables -P INPUT DROP 这就把默认规则给拒绝了。并且没有定义哪个动作，所以关于外界连接的所有规则包括Xshell连接之类的，远程连接都被拒绝了。</div><div class="line">-F: FLASH，清空规则链的(注意每个链的管理权限)</div><div class="line">     iptables -t nat -F PREROUTING</div><div class="line">     iptables -t nat -F 清空nat表的所有链</div><div class="line">-N:NEW 支持用户新建一个链</div><div class="line">    iptables -N inbound_tcp_web 表示附在tcp表上用于检查web的。</div><div class="line">-X: 用于删除用户自定义的空链</div><div class="line">    使用方法跟-N相同，但是在删除之前必须要将里面的链给清空昂了</div><div class="line">-E：用来Rename chain主要是用来给用户自定义的链重命名</div><div class="line">     -E oldname newname</div><div class="line">-Z：清空链，及链中默认规则的计数器的（有两个计数器，被匹配到多少个数据包，多少个字节）</div><div class="line">    iptables -Z :清空</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;规则管理命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-A：追加，在当前链的最后新增一个规则</div><div class="line">-I num : 插入，把当前规则插入为第几条。</div><div class="line">    -I 3 :插入为第三条</div><div class="line">-R num：Replays替换/修改第几条规则</div><div class="line">     格式：iptables -R 3 …………</div><div class="line">-D num：删除，明确指定删除第几条规则</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;查看管理命令 “-L”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">附加子命令</div><div class="line">-n：以数字的方式显示ip，它会将ip直接显示出来，如果不加-n，则会将ip反向解析成主机名。</div><div class="line">-v：显示详细信息</div><div class="line">-vv</div><div class="line">-vvv :越多越详细</div><div class="line">-x：在计数器上显示精确值，不做单位换算</div><div class="line">--line-numbers : 显示规则的行号</div><div class="line">-t nat：显示所有的关卡的信息</div></pre></td></tr></table></figure></p>
+<h2 id="匹配标准"><a href="#匹配标准" class="headerlink" title="匹配标准"></a>匹配标准</h2><p>&emsp;&emsp;通用匹配：源地址目标地址的匹配<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-s：指定作为源地址匹配，这里不能指定主机名称，必须是IP</div><div class="line">    IP | IP/MASK | 0.0.0.0/0.0.0.0</div><div class="line">    而且地址可以取反，加一个“!”表示除了哪个IP之外</div><div class="line">-d：表示匹配目标地址</div><div class="line">-p：用于匹配协议的（这里的协议通常有3种，TCP/UDP/ICMP）</div><div class="line">-i eth0：从这块网卡流入的数据</div><div class="line">    流入一般用在INPUT和PREROUTING上</div><div class="line">-o eth0：从这块网卡流出的数据</div><div class="line">    流出一般在OUTPUT和POSTROUTING上</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;扩展匹配<br>&emsp;&emsp;&emsp;&emsp;隐含扩展：对协议的扩展<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-p tcp :TCP协议的扩展。一般有三种扩展</div><div class="line">    --dport XX-XX：指定目标端口,不能指定多个非连续端口,只能指定单个端口，比如</div><div class="line">    --dport 21  或者 --dport 21-23 (此时表示21,22,23)</div><div class="line">    --sport：指定源端口</div><div class="line">    --tcp-fiags：TCP的标志位（SYN,ACK，FIN,PSH，RST,URG）对于它，一般要跟两个参数：</div><div class="line">         1.检查的标志位</div><div class="line">         2.必须为1的标志位</div><div class="line">           --tcpflags syn,ack,fin,rst syn   =    --syn</div><div class="line">             表示检查这4个位，这4个位中syn必须为1，其他的必须为0。所以这个意思就是用于检测三次握手的第一次包的。对于这种专门匹配第一包的SYN为1的包，还有一种简写方式，叫做--syn</div><div class="line">-p udp：UDP协议的扩展</div><div class="line">    --dport</div><div class="line">    --sport</div><div class="line">-p icmp：icmp数据报文的扩展</div><div class="line">    --icmp-type：</div><div class="line">         echo-request(请求回显)，一般用8 来表示,所以 --icmp-type 8 匹配请求回显数据包</div><div class="line">         echo-reply （响应的数据包）一般用0来表示</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;显式扩展（-m）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">扩展各种模块</div><div class="line">-m multiport：表示启用多端口扩展</div><div class="line">      之后我们就可以启用比如 --dports 21,23,80</div></pre></td></tr></table></figure></p>
+<h2 id="j-ACTION详解"><a href="#j-ACTION详解" class="headerlink" title="-j ACTION详解"></a>-j ACTION详解</h2><p>&emsp;&emsp;常用的ACTION：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DROP：悄悄丢弃,一般我们多用DROP来隐藏我们的身份，以及隐藏我们的链表</div><div class="line">REJECT：明示拒绝</div><div class="line">ACCEPT：接受,custom_chain：转向一个自定义的链</div><div class="line">DNAT</div><div class="line">SNAT</div><div class="line">MASQUERADE：源地址伪装</div><div class="line">REDIRECT：重定向：主要用于实现端口重定向</div><div class="line">MARK：打防火墙标记的</div><div class="line">RETURN：返回,在自定义链执行完毕后使用返回，来返回原规则链。</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;实例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">只要是来自于172.16.0.0/16网段的都允许访问我本机的172.16.100.1的SSHD服务</div><div class="line">     分析：首先肯定是在允许表中定义的。因为不需要做NAT地址转换之类的，然后查看我们SSHD服务，在22号端口上，处理机制是接受，对于这个表，需要有一来一回两个规则，如果我们允许也好，拒绝也好，对于访问本机服务，我们最好是定义在INPUT链上，而OUTPUT再予以定义就好。(会话的初始端先定义)，所以加规则就是：</div><div class="line">     定义进来的： iptables -t filter -A INPUT -s 172.16.0.0/16 -d 172.16.100.1 -p tcp --dport 22 -j ACCEPT</div><div class="line">     定义出去的： iptables -t filter -A OUTPUT -s 172.16.100.1 -d 172.16.0.0/16 -p tcp --dport 22 -j ACCEPT</div><div class="line">     将默认策略改成DROP:</div><div class="line">				  iptables -P INPUT DROP</div><div class="line">				  iptables -P OUTPUT DROP</div><div class="line">				  iptables -P FORWARD DROP</div></pre></td></tr></table></figure></p>
+<h2 id="状态检测"><a href="#状态检测" class="headerlink" title="状态检测"></a>状态检测</h2><p>&emsp;&emsp;是一种显式扩展，用于检测会话之间的连接关系的，有了检测我们可以实现会话间功能的扩展<br>&emsp;&emsp;什么是状态检测？对于整个TCP协议来讲，它是一个有连接的协议，三次握手中，第一次握手，我们就叫NEW连接，而从第二次握手以后的，ack都为1，这是正常的数据传输，和tcp的第二次第三次握手，叫做已建立的连接（ESTABLISHED）,还有一种状态，比较诡异的，比如：SYN=1 ACK=1 RST=1,对于这种我们无法识别的，我们都称之为INVALID无法识别的。还有第四种，FTP这种古老的拥有的特征，每个端口都是独立的，21号和20号端口都是一去一回，他们之间是有关系的，这种关系我们称之为RELATED。<br>&emsp;&emsp;所以我们的状态一共有四种：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NEW</div><div class="line">ESTABLISHED</div><div class="line">RELATED</div><div class="line">INVALID</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;对于我们刚才的实例，可以增加状态检测。比如进来的只允许状态为NEW和ESTABLISHED的进来，出去只允许ESTABLISHED的状态出去，这就可以将比较常见的反弹式木马有很好的控制机制。<br>&emsp;&emsp;对于实例1的扩展：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">进来的拒绝出去的允许，进来的只允许ESTABLISHED进来，出去只允许ESTABLISHED出去。默认规则都使用拒绝</div><div class="line">		iptables -L -n --line-number  ：查看之前的规则位于第几行</div><div class="line">    改写INPUT</div><div class="line">        iptables -R INPUT 2 -s 172.16.0.0/16 -d 172.16.100.1 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT</div><div class="line">        iptables -R OUTPUT 1 -m state --state ESTABLISHED -j ACCEPT</div><div class="line"> </div><div class="line">    此时如果想再放行一个80端口如何放行呢？</div><div class="line">        iptables -A INPUT -d 172.16.100.1 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT</div><div class="line"> </div><div class="line">        iptables -R INPUT 1 -d 172.16.100.1 -p udp --dport 53 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;实例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">假如我们允许自己ping别人，但是别人ping自己ping不通如何实现呢？</div><div class="line">分析：对于ping这个协议，进来的为8（ping），出去的为0(响应).我们为了达到目的，需要8出去,允许0进来</div><div class="line"> </div><div class="line">在出去的端口上：iptables -A OUTPUT -p icmp --icmp-type 8 -j ACCEPT</div><div class="line">在进来的端口上：iptables -A INPUT -p icmp --icmp-type 0 -j ACCEPT</div><div class="line"> </div><div class="line">小扩展：对于127.0.0.1比较特殊，我们需要明确定义它</div><div class="line">			iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</div><div class="line">			iptables -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT</div></pre></td></tr></table></figure></p>
+<h2 id="SNAT和DNAT的实现"><a href="#SNAT和DNAT的实现" class="headerlink" title="SNAT和DNAT的实现"></a>SNAT和DNAT的实现</h2><p>&emsp;&emsp;由于我们现在IP地址十分紧俏，已经分配完了，这就导致我们必须要进行地址转换，来节约我们仅剩的一点IP资源。那么通过iptables如何实现NAT的地址转换呢？<br>1.SNAT基于原地址的转换<br>&emsp;&emsp;基于原地址的转换一般用在我们的许多内网用户通过一个外网的口上网的时候，这时我们将我们内网的地址转换为一个外网的IP，我们就可以实现连接其他外网IP的功能。<br>所以我们在iptables中就要定义到底如何转换：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">比如我们现在要将所有192.168.10.0网段的IP在经过的时候全都转换成172.16.100.1这个假设出来的外网地址：</div><div class="line">	iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j SNAT --to-source 172.16.100.1</div><div class="line">	这样，只要是来自本地网络的试图通过网卡访问网络的，都会被统统转换成172.16.100.1这个IP.</div><div class="line">	那么，如果172.16.100.1不是固定的怎么办？</div><div class="line">	我们都知道当我们使用联通或者电信上网的时候，一般它都会在每次你开机的时候随机生成一个外网的IP，意思就是外网地址是动态变换的。这时我们就要将外网地址换成 MASQUERADE(动态伪装):它可以实现自动寻找到外网地址，而自动将其改为正确的外网地址。所以，我们就需要这样设置：</div><div class="line">         iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j MASQUERADE</div><div class="line">         这里要注意：地址伪装并不适用于所有的地方。</div></pre></td></tr></table></figure></p>
+<p>2.DNAT目标地址转换<br>&emsp;&emsp;对于目标地址转换，数据流向是从外向内的，外面的是客户端，里面的是服务器端通过目标地址转换，我们可以让外面的ip通过我们对外的外网ip来访问我们服务器不同的服务器，而我们的服务却放在内网服务器的不同的服务器上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">iptables -t nat -A PREROUTING -d 192.168.10.18 -p tcp --dport 80 -j DNAT --todestination 172.16.100.2</div><div class="line">     目标地址转换要做在到达网卡之前进行转换,所以要做在PREROUTING这个位置上</div></pre></td></tr></table></figure></p>
+<h2 id="控制规则的存放以及开启"><a href="#控制规则的存放以及开启" class="headerlink" title="控制规则的存放以及开启"></a>控制规则的存放以及开启</h2><p>注意：你所定义的所有内容，当你重启的时候都会失效，要想我们能够生效，需要使用一个命令将它保存起来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">service iptables save 命令  --它会保存在/etc/sysconfig/iptables这个文件中</div><div class="line">iptables-save 命令          --iptables-save &gt; /etc/sysconfig/iptables</div><div class="line">iptables-restore 命令       --开机的时候，它会自动加载/etc/sysconfig/iptabels</div><div class="line">			                --如果开机不能加载或者没有加载，而你想让一个自己写的配置文件（假设为iptables.2）手动生效的话：</div><div class="line">			                --iptables-restore &lt; /etc/sysconfig/iptables.2</div><div class="line">			                --则完成了将iptables中定义的规则手动生效</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://blog.xiaosecond.top/2017/03/16/Iptables详解/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/16/Iptables详解/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/03/16/Linux安装ftp组件/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Linux安装ftp组件
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/03/16/Centos安装Nginx/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Linux安装Nginx</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+
+            <!-- 多说评论框 start -->
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/16/Iptables详解/" data-title="Iptables详解" data-url="http://blog.xiaosecond.top/2017/03/16/Iptables详解/"></div>
+            <!-- 多说评论框 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"xiaosecond"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- 多说公共JS代码 end -->
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+<div class="widget-wrap">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget">
+        <div class="card-front animated col s12 m12 l8 offset-l2 fadeInUp">
+            <p  class="bg-danger">
+                QQ：1187673610<br>
+                微信：lhq118767<br>
+                欢迎加好友交流经验。<br>
+
+            </p>
+        </div>
+
+    </div>
+</div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Iptables，Linux/" style="font-size: 10px;">Iptables，Linux</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/ftp，Linux/" style="font-size: 10px;">ftp，Linux</a> <a href="/tags/java/" style="font-size: 20px;">java</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://www.baidu.com">百度</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+
+            &copy; 2017 李华钦 <br>
+            <a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备17021014号</a>
+             Powered by
+            <a href="http://blog.xujin.org" target="_blank">李华钦</a>
+           .
+
+            <br>
+
+            <span style="display: inline;" id="busuanzi_container_site_pv">访问量 <span class="foot-count" id="busuanzi_value_site_pv"></span>次
+        </div>
+    </div>
+
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://blog.xiaosecond.top/2017/03/16/Iptables详解/';
+        
+        this.page.identifier = 'Iptables详解';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'xiaosecond' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

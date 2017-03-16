@@ -3,26 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux下安装Mysql | 程序猿~xiaosecond</title>
+    <title>Linux安装Nginx | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="生命在于折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux下安装Mysql">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/index.html">
+<meta property="og:title" content="Linux安装Nginx">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql1.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql2.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql3.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql4.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql5.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql6.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql7.png">
-<meta property="og:updated_time" content="2017-03-15T12:31:57.699Z">
+<meta property="og:updated_time" content="2017-03-16T01:05:20.795Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux下安装Mysql">
+<meta name="twitter:title" content="Linux安装Nginx">
 <meta name="twitter:description" content="生命在于折腾">
-<meta name="twitter:image" content="http://blog.xiaosecond.top/../../../../img/linuxmysql1.png">
     
 
     
@@ -207,7 +199,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Linux下安装Mysql" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Centos安装Nginx" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -215,7 +207,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Linux下安装Mysql
+            Linux安装Nginx
         </h1>
     
 
@@ -224,8 +216,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/15/Linux下安装Mysql/">
-            <time datetime="2017-03-15T10:38:15.000Z" itemprop="datePublished">2017-03-15</time>
+        <a href="/2017/03/16/Centos安装Nginx/">
+            <time datetime="2017-03-15T20:42:18.000Z" itemprop="datePublished">2017-03-15</time>
         </a>
     </div>
 
@@ -239,7 +231,7 @@
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>
+        <a class="tag-link" href="/tags/Nginx/">Nginx</a>
     </div>
 
                     </div>
@@ -250,27 +242,13 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="一、添加mysql组和mysql用户"><a href="#一、添加mysql组和mysql用户" class="headerlink" title="一、添加mysql组和mysql用户"></a>一、添加mysql组和mysql用户</h2><p>&emsp;&emsp;添加mysql组和mysql用户，用于设置mysql安装目录文件所有者和所属组，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure></p>
-<ul>
-<li>useradd -r参数表示mysql用户是系统用户，不可用于登录系统。</li>
-<li>useradd -g参数表示把mysql用户添加到mysql用户组中。<a id="more"></a>
-<h2 id="二、解压文件"><a href="#二、解压文件" class="headerlink" title="二、解压文件"></a>二、解压文件</h2>&emsp;&emsp;压缩包下载地址：<a href="http://pan.baidu.com/s/1o8nYBUE" target="_blank" rel="external">http://pan.baidu.com/s/1o8nYBUE</a><br>&emsp;&emsp;将二进制文件解压到指定的安装目录/usr/local，命令如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">tar -zxvf /Ultrapower/test/mysql-5.7.13-Linux-glibc2.5-i686.tar.gz </div><div class="line">         --z:表示 tar 包是被 gzip 压缩过的</div><div class="line">         --x:把压缩文件解压出来</div><div class="line">         --v:显示解压进度</div><div class="line">         --f:指定被处理文件是 mysql-5.7.13-Linux-glibc2.5-i686.tar.gz</div><div class="line">mv mysql-5.7.13-linux-glibc2.5-i686 mysql   --更改mysql目录名称</div><div class="line">cd mysql            --进入mysql文件夹，也就是mysql所在的目录</div><div class="line">chown -R mysql .    --更改mysql目录所属的组和用户。更改权限</div><div class="line">chgrp -R mysql .    --注意空格隔开：&quot;mysql&quot;+&quot;空格&quot;+&quot;.&quot;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="三、初始化-MySQL-配置表"><a href="#三、初始化-MySQL-配置表" class="headerlink" title="三、初始化 MySQL 配置表"></a>三、初始化 MySQL 配置表</h2><p>&emsp;&emsp;（1）、执行mysql_install_db脚本，对mysql中的data目录进行初始化并创建一些系统表格，<br>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir data </div><div class="line">bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;执行结果如下，注意最后一行，它给了root一个初始密码，后面要登录的时候要用到这个密码。<br><img src="../../../../img/linuxmysql1.png" alt=""><br>&emsp;&emsp;（2）、将mysql/目录下除了data/目录的所有文件，改回root用户所有，mysql用户只需作为mysql/data/目录下所有文件的所有者，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chown -R root . </div><div class="line">chown -R mysql data</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;（3）、复制配置文件，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp support-files/my-default.cnf /etc/my.cnf</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;如出现下图错误，进入etc目录删除my.cnf文件后重新执行复制配置文件命令<br><img src="../../../../img/linuxmysql2.png" alt=""><br>&emsp;&emsp;（4）、修改my.cnf关键配置<br><img src="../../../../img/linuxmysql3.png" alt=""><br>&emsp;&emsp;注意，tmp目录不存在，请创建之。否则会出错     创建后要赋予mysql权限，chown -R mysql:mysql tmp<br> 如果mysql.sock指定到/tmp以外的目录，需要在my.cnf中添加[client]并且指定socket位置，<br> 否则登录mysql时会报错：ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)<br> 应该是，默认会找tmp目录下的sock文件<br>&emsp;&emsp;5、修改my.cnf关键配置</p>
-<h2 id="四、将mysqld服务加入开机自启动项"><a href="#四、将mysqld服务加入开机自启动项" class="headerlink" title="四、将mysqld服务加入开机自启动项"></a>四、将mysqld服务加入开机自启动项</h2><p>&emsp;&emsp; support-files/mysql.server 拷贝为/etc/init.d/mysql并设置运行权限，这样就可以使用service mysql命令启动/停止服务，否则就只能使用{mysql}/bin/mysqld_safe &amp;命令来启动服务还需要把mysql.server中basedir的相关路径，改为自定义的路径/usr/local/mysql，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cp mysql.server /etc/init.d/mysql   --拷贝</div><div class="line">chmod +x /etc/init.d/mysql          --设置运行权限</div><div class="line">chkconfig --add mysql               --把mysql注册为开机启动的服务</div><div class="line">chkconfig --list mysql              -- 查看是否添加成功</div><div class="line">  --mysqld          0:关闭  1:关闭  2:启用  3:启用  4:启用  5:启用  6:关闭</div></pre></td></tr></table></figure></p>
-<h2 id="五、mysql服务的开启和关闭"><a href="#五、mysql服务的开启和关闭" class="headerlink" title="五、mysql服务的开启和关闭"></a>五、mysql服务的开启和关闭</h2><p>命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/mysql start   或者   serivce mysql start  或者  bin/mysqld_safe&amp; </div><div class="line">/etc/init.d/mysql stop    或者   service mysql stop   或者  bin/mysqladmin -uroot -p</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注：在bin/mysqld_safe&amp;这个启动脚本里已默认设置–user=mysql；在脚本末尾加&amp;表示设置此进程为后台进程，区别就是在控制台输入bg，即可将当前进  程转入后台，  当前shell  可进行其他操作。<br> bin/mysqladmin -uroot -p  (注意此时的root是指mysql的root用户)</p>
-<p>&emsp;&emsp;需要把mysqll加入到环境变量中，或者为mysql建立软链接,否则运行mysql命令会出现   -bash: mysql:command not found<br>不加环境变量，就要使用bin/mysql -uroot -p 或者bin/mysqladmin -uroot -p  命令来登录mysql服务<br>建立软链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ln -s /usr/local/mysql/bin/mysql  /usr/local/bin</div><div class="line">ln -s /usr/local/mysql/bin/mysqladmin  /usr/local/bin</div><div class="line">ln -s /usr/local/test/mysql/bin/mysqld_safe  /usr/local/bin</div></pre></td></tr></table></figure></p>
-<h2 id="六、加入环境变量"><a href="#六、加入环境变量" class="headerlink" title="六、加入环境变量"></a>六、加入环境变量</h2><p>&emsp;&emsp;修改/etc/profile文件使其永久性生效，并对所有系统用户生效，在文件末尾加上如下两行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">PATH=$PATH:/usr/local/mysql:/usr/local/mysql/bin</div><div class="line">export PATH</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;最后：执行 命令source /etc/profile或 执行点命令 ./profile使其修改生效，执行完可通过echo $PATH命令查看是否添加成功。<br><img src="../../../../img/linuxmysql4.png" alt=""></p>
-<h2 id="七、登录mysql服务、修改密码"><a href="#七、登录mysql服务、修改密码" class="headerlink" title="七、登录mysql服务、修改密码"></a>七、登录mysql服务、修改密码</h2><p>&emsp;&emsp;（1）、执行：mysql -uroot -p生成的密码(初始化配置表时生成的密码)</p>
-<p>&emsp;&emsp;（2）、执行：set password=password(‘123456’); 修改密码<br><img src="../../../../img/linuxmysql5.png" alt=""></p>
-<h2 id="八、远程登陆用户设置"><a href="#八、远程登陆用户设置" class="headerlink" title="八、远程登陆用户设置"></a>八、远程登陆用户设置</h2><p>&emsp;&emsp; （1）、修改user表中数据，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mysql -uroot -p123456  --登陆mysql</div><div class="line">show databases;        --查看库</div><div class="line">use mysql;             --选择mysql库</div><div class="line">show tables;           --查看表</div><div class="line">select Host , User ,authentication_string , password_last_changed  from user;  --查看user表数据</div><div class="line">update user set host=&apos;%&apos; where user=&apos;root&apos; and host=&apos;localhost&apos;;  --将host为localhost的root用户修改为可支持远程登陆</div></pre></td></tr></table></figure></p>
-<p><img src="../../../../img/linuxmysql6.png" alt=""><br><img src="../../../../img/linuxmysql7.png" alt=""><br>&emsp;&emsp; （2）、开启防火墙，将mysql服务添加进防火墙，开启3306端口，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">firewall-cmd --add-service=mysql --permanent    --将mysql服务添加进防火墙(permanent表示永久)</div><div class="line">firewall-cmd  -reload                           --重启防火墙</div><div class="line">firewall-cmd --add-port=3306/tcp --permanent    --添加3306端口，永久生效</div></pre></td></tr></table></figure></p>
+            <h2 id="nginx安装环境"><a href="#nginx安装环境" class="headerlink" title="nginx安装环境"></a>nginx安装环境</h2><p>&emsp;&emsp;安装nginx需要先将官网下载的源码进行编译，编译依赖gcc环境，如果没有gcc环境，需要安装gcc：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install gcc-c++</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y pcre pcre-devel</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;zlib库提供了很多种压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip，所以需要在linux上安装zlib库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y zlib zlib-devel</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。nginx不仅支持http协议，还支持https（即在ssl协议上传输http），所以需要在linux安装openssl库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y openssl openssl-devel</div></pre></td></tr></table></figure></p>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p>&emsp;&emsp;nginx-1.8.0.tar.gz下载地址：<a href="http://pan.baidu.com/s/1jIfZs8I" target="_blank" rel="external">http://pan.baidu.com/s/1jIfZs8I</a><br>&emsp;&emsp;将nginx-1.8.0.tar.gz拷贝至linux服务器,解压命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf nginx-1.8.0.tar.gz   -- 解压文件</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;配置makefile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">./configure \</div><div class="line">--prefix=/usr/local/nginx \</div><div class="line">--pid-path=/var/run/nginx/nginx.pid \</div><div class="line">--lock-path=/var/lock/nginx.lock \</div><div class="line">--error-log-path=/var/log/nginx/error.log \</div><div class="line">--http-log-path=/var/log/nginx/access.log \</div><div class="line">--with-http_gzip_static_module \</div><div class="line">--http-client-body-temp-path=/var/temp/nginx/client \</div><div class="line">--http-proxy-temp-path=/var/temp/nginx/proxy \</div><div class="line">--http-fastcgi-temp-path=/var/temp/nginx/fastcgi \</div><div class="line">--http-uwsgi-temp-path=/var/temp/nginx/uwsgi \</div><div class="line">--http-scgi-temp-path=/var/temp/nginx/scgi</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注意：上边将临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录</p>
 
         
         </div>
@@ -318,7 +296,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/">评论</a>
+        <a href="http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/">评论</a>
     
 
         </footer>
@@ -327,19 +305,19 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2017/03/16/Centos安装Nginx/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/03/16/Iptables详解/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Linux安装Nginx
+                    Iptables详解
                 
             </div>
         </a>
     
     
-        <a href="/2017/03/13/Eclipse配置maven/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/15/Linux下安装Mysql/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Eclipse配置maven</div>
+            <div class="article-nav-title">Linux下安装Mysql</div>
         </a>
     
 </nav>
@@ -354,7 +332,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
 
             <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/15/Linux下安装Mysql/" data-title="Linux下安装Mysql" data-url="http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/"></div>
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/16/Centos安装Nginx/" data-title="Linux安装Nginx" data-url="http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/"></div>
             <!-- 多说评论框 end -->
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
@@ -463,9 +441,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/03/15/Linux下安装Mysql/';
+            this.page.url = 'http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/';
         
-        this.page.identifier = 'Linux下安装Mysql';
+        this.page.identifier = 'Centos安装Nginx';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
