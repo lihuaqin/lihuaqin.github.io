@@ -576,7 +576,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><h2 id="一、添加mysql组和mysql用户"><a href="#一、添加mysql组和mysql用户" class="headerlink" title="一、添加mysql组和mysql用户"></a>一、添加mysql组和mysql用户</h2><p>&emsp;&emsp;添加mysql组和mysql用户，用于设置mysql安装目录文件所有者和所属组，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">groupadd mysql</div><div class="line">useradd -r -g mysql mysql</div></pre></td></tr></table></figure></p>
+            <p><h2 id="一、添加mysql组和mysql用户"><a href="#一、添加mysql组和mysql用户" class="headerlink" title="一、添加mysql组和mysql用户"></a>一、添加mysql组和mysql用户</h2><p>&emsp;&emsp;添加mysql组和mysql用户，用于设置mysql安装目录文件所有者和所属组，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# groupadd mysql</div><div class="line">[root@bogon local]# useradd -r -g mysql mysql</div></pre></td></tr></table></figure></p>
 <ul>
 <li>useradd -r参数表示mysql用户是系统用户，不可用于登录系统。</li>
 <li>useradd -g参数表示把mysql用户添加到mysql用户组中。</p>
