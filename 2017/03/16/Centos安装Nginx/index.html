@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://blog.xiaosecond.top/2017/03/16/Centos安装Nginx/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-03-17T03:00:13.288Z">
+<meta property="og:updated_time" content="2017-03-17T09:30:44.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux安装Nginx">
 <meta name="twitter:description" content="生命在于折腾">
@@ -244,9 +244,9 @@
             
             <h2 id="nginx安装环境"><a href="#nginx安装环境" class="headerlink" title="nginx安装环境"></a>nginx安装环境</h2><p>&emsp;&emsp;安装nginx需要先将官网下载的源码进行编译，编译依赖gcc环境，如果没有gcc环境，需要安装gcc：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon nginx-1.8.0]yum install gcc-c++</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库。nginx的http模块使用pcre来解析正则表达式，所以需要在linux上安装pcre库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon nginx-1.8.0]yum install -y pcre pcre-devel</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>&emsp;&emsp;zlib库提供了很多种压缩和解压缩的方式，nginx使用zlib对http包的内容进行gzip，所以需要在linux上安装zlib库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon nginx-1.8.0]yum install -y zlib zlib-devel</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及SSL协议，并提供丰富的应用程序供测试或其它目的使用。nginx不仅支持http协议，还支持https（即在ssl协议上传输http），所以需要在linux安装openssl库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon nginx-1.8.0]yum install -y openssl openssl-devel</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p>&emsp;&emsp;nginx-1.8.0.tar.gz下载地址：<a href="http://pan.baidu.com/s/1jIfZs8I" target="_blank" rel="external">http://pan.baidu.com/s/1jIfZs8I</a><br>&emsp;&emsp;将nginx-1.8.0.tar.gz拷贝至linux服务器,解压命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf nginx-1.8.0.tar.gz   -- 解压文件</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;1、配置makefile<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[root@bogon nginx-1.8.0]# ./configure \</div><div class="line"> --prefix=/usr/local/nginx \</div><div class="line"> --pid-path=/var/log/nginx/nginx.pid \</div><div class="line"> --lock-path=/var/lock/nginx.lock \</div><div class="line"> --error-log-path=/var/log/nginx/error.log \</div><div class="line"> --http-log-path=/var/log/nginx/access.log \</div><div class="line"> --with-http_gzip_static_module \</div><div class="line"> --http-client-body-temp-path=/var/temp/nginx/client \</div><div class="line"> --http-proxy-temp-path=/var/temp/nginx/proxy \</div><div class="line"> --http-fastcgi-temp-path=/var/temp/nginx/fastcgi \</div><div class="line"> --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \</div><div class="line"> --http-scgi-temp-path=/var/temp/nginx/scgi</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;注意：上边将临时文件目录指定为/var/temp/nginx，需要在/var下创建temp及nginx目录，还需在/var/run目录下创建nginx目录</p>
