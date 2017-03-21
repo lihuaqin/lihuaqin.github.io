@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-17T09:30:25.017Z</updated>
+  <updated>2017-03-21T01:43:29.405Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 安装tomcat</title>
+    <link href="http://blog.xiaosecond.top/2017/03/21/Linux-%E5%AE%89%E8%A3%85tomcat/"/>
+    <id>http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/</id>
+    <published>2017-03-21T09:09:14.000Z</published>
+    <updated>2017-03-21T01:43:29.405Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装JDK环境"><a href="#安装JDK环境" class="headerlink" title="安装JDK环境"></a>安装JDK环境</h2><p>下载地址：<br>解压：jdk-7u79-linux-x64.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf jdk-7u79-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>配置jdk环境<br>打开etc目录,修改profile文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# cd /etc/</div><div class="line">[root@bogon etc]# vi profile</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>在profile末尾添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/jdk1.7.0_79</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin</div><div class="line">export CLASSPATH=./:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div></pre></td></tr></table></figure></p>
+<p>使profile生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# source /etc/profile</div></pre></td></tr></table></figure></p>
+<p>查看环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# echo $JAVA_HOME</div><div class="line">[root@bogon etc]# echo $CLASSPATH</div><div class="line">[root@bogon etc]# echo $PATH</div></pre></td></tr></table></figure></p>
+<p>查看jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# java -version</div></pre></td></tr></table></figure></p>
+<h2 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h2><p>下载<br>解压apache-tomcat-7.0.70.tar.gz：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf apache-tomcat-7.0.70.tar.gz</div><div class="line">[root@bogon local]# mv apache-tomcat-7.0.70   tomcat</div></pre></td></tr></table></figure></p>
+<p>打开tomcat/conf/目录配置项目路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# cd tomcat/conf/</div><div class="line">[root@bogon conf]# vi  server.xml</div></pre></td></tr></table></figure></p>
+<p>添加context配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot;</div><div class="line">           unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;</div><div class="line">        &lt;Context path=&quot;/&quot; docBase=&quot;/usr/local/tomcat/webapps/test&quot; reloadable=&quot;true&quot;&gt;</div><div class="line">        &lt;/Context&gt;</div><div class="line">       &lt;!-- SingleSignOn valve, share authentication between web applications</div><div class="line">            Documentation at: /docs/config/valve.html --&gt;</div><div class="line">       &lt;!--</div><div class="line">       &lt;Valve className=&quot;org.apache.catalina.authenticator.SingleSignOn&quot; /&gt;</div><div class="line">       --&gt;</div><div class="line"></div><div class="line">       &lt;!-- Access log processes all example.</div><div class="line">            Documentation at: /docs/config/valve.html</div><div class="line">            Note: The pattern used is equivalent to using pattern=&quot;common&quot; --&gt;</div><div class="line">       &lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot;</div><div class="line">              prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot;</div><div class="line">              pattern=&quot;%h %l %u %t &amp;quot;%r&amp;quot; %s %b&quot; /&gt;</div><div class="line"></div><div class="line">     &lt;/Host&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      生命在于折腾
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://blog.xiaosecond.top/categories/Linux/"/>
+    
+    
+      <category term="tomcat" scheme="http://blog.xiaosecond.top/tags/tomcat/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux安装ftp组件</title>
