@@ -151,11 +151,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                8
+                10
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                7
+                8
                 <span>标签</span>
             </div>
         </div>
@@ -199,6 +199,224 @@
 
             
             <section id="main">
+    <article id="post-linux-安装Erlang" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/21/linux-安装Erlang/">linux 安装Erlang</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/21/linux-安装Erlang/">
+            <time datetime="2017-03-21T11:23:26.000Z" itemprop="datePublished">2017-03-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Erlang/">Erlang</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>官网地址：<a href="http://www.erlang.org/downloads" target="_blank" rel="external">http://www.erlang.org/downloads</a><br>百度云</p>
+<h2 id="安装perl"><a href="#安装perl" class="headerlink" title="安装perl"></a>安装perl</h2><p>下载：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf perl-5.16.1.tar.gz</div><div class="line">[root@bogon local]# cd perl-5.16.1</div><div class="line">[root@bogon perl-5.16.1]# ./Configure -des -Dprefix=/usr/local/perl</div><div class="line">[root@bogon perl-5.16.1]# make</div><div class="line">[root@bogon perl-5.16.1]# make test</div><div class="line">[root@bogon perl-5.16.1]# make install</div><div class="line">[root@bogon perl-5.16.1]# perl -v</div></pre></td></tr></table></figure></p>
+<h2 id="安装ncurses"><a href="#安装ncurses" class="headerlink" title="安装ncurses"></a>安装ncurses</h2><p>下载：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf ncurses-5.7</div><div class="line">[root@bogon local]# cd ncurses-5.7</div><div class="line">[root@bogon ncurses-5.7]# ./configure -prefix=/usr/local -with-shared -without-debug</div><div class="line">[root@bogon ncurses-5.7]# make</div><div class="line">[root@bogon ncurses-5.7]# make install</div></pre></td></tr></table></figure></p>
+<h2 id="安装m4"><a href="#安装m4" class="headerlink" title="安装m4"></a>安装m4</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]  tar -zxvf  m4-1.4.18.tar.gz </div><div class="line">[root@bogon local] cd m4-1.4.18</div><div class="line">[root@bogon m4-1.4.18]# ./configure</div><div class="line">[root@bogon m4-1.4.18]# make </div><div class="line">[root@bogon m4-1.4.18]# make install</div></pre></td></tr></table></figure>
+<h2 id="安装flex"><a href="#安装flex" class="headerlink" title="安装flex"></a>安装flex</h2><p>下载：<a href="https://sourceforge.net/projects/flex/files/?source=navbar" target="_blank" rel="external">https://sourceforge.net/projects/flex/files/?source=navbar</a></p>
+<p>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf flex-2.5.37.tar.gz </div><div class="line">root@bogon local]# cd flex-2.5.37</div><div class="line">[root@bogon flex-2.5.37]#  ./configure</div><div class="line">[root@bogon flex-2.5.37]# make</div><div class="line">[root@bogon flex-2.5.37]# make install</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# yum -y install flex</div></pre></td></tr></table></figure>
+<h2 id="安装bacc"><a href="#安装bacc" class="headerlink" title="安装bacc"></a>安装bacc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install bacc</div></pre></td></tr></table></figure>
+<h2 id="安装unixODBC"><a href="#安装unixODBC" class="headerlink" title="安装unixODBC"></a>安装unixODBC</h2><p>下载：<br><a href="http://www.unixodbc.org/unixODBC-2.2.1.tar.gz" target="_blank" rel="external">http://www.unixodbc.org/unixODBC-2.2.1.tar.gz</a><br>百度云：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf unixODBC-2.2.1.tar.gz </div><div class="line">[root@bogon local]# cd unixODBC-2.2.1 </div><div class="line">[root@bogon unixODBC-2.2.1]# ./configure --enable-gui=no</div></pre></td></tr></table></figure></p>
+<h2 id="安装OpenSSL"><a href="#安装OpenSSL" class="headerlink" title="安装OpenSSL"></a>安装OpenSSL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```</div></pre></td></tr></table></figure>
+<p>[root@bogon local]# yum install -y openssl openssl-devel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 解压</div></pre></td></tr></table></figure>
+<p>[root@bogon local]# tar -zxvf otp_src_18.3.tar.gz<br>```</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-linux-安装-pythonn" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/21/linux-安装-pythonn/">linux  安装 python</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/21/linux-安装-pythonn/">
+            <time datetime="2017-03-21T10:38:45.000Z" itemprop="datePublished">2017-03-21</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/tomcat/">tomcat</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p>官网：<a href="https://www.python.org/downloads/" target="_blank" rel="external">https://www.python.org/downloads/</a><br>百度网盘：</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>解压Python-2.7.13.tgz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf Python-2.7.13.tgz</div></pre></td></tr></table></figure></p>
+<p>进入Python-2.7.13目录编译安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@bogon Python-2.7.13]# ./compile      --编译</div><div class="line">[root@bogon Python-2.7.13]# make           --安装</div><div class="line">[root@bogon Python-2.7.13]# make  install  --安装</div><div class="line">[root@bogon Python-2.7.13]# python -V      --查看版本</div></pre></td></tr></table></figure></p>
+<h2 id="安装simpleJson"><a href="#安装simpleJson" class="headerlink" title="安装simpleJson"></a>安装simpleJson</h2><p>下载：<a href="http://pypi.python.org/pypi/simplejson/" target="_blank" rel="external">http://pypi.python.org/pypi/simplejson/</a><br>百度云：<br>解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf simplejson-3.10.0.tar.gz</div></pre></td></tr></table></figure></p>
+<p>进入simplejson-3.10.0目录进行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# cd  simplejson-3.10.0</div><div class="line">[root@bogon simplejson-3.10.0]# python setup.py build  </div><div class="line">[root@bogon simplejson-3.10.0]# python setup.py install</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://blog.xiaosecond.top/2017/03/21/linux-安装-pythonn/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/21/linux-安装-pythonn/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Linux-安装tomcat" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1063,7 +1281,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1072,7 +1290,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">8</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -1081,7 +1299,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Iptables，Linux/" style="font-size: 10px;">Iptables，Linux</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/ftp，Linux/" style="font-size: 10px;">ftp，Linux</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a>
+            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/Iptables，Linux/" style="font-size: 10px;">Iptables，Linux</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/ftp，Linux/" style="font-size: 10px;">ftp，Linux</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/tomcat/" style="font-size: 20px;">tomcat</a>
         </div>
     </div>
 

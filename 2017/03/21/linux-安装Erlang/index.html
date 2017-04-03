@@ -3,17 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>归档 | 程序猿~xiaosecond</title>
+    <title>linux 安装Erlang | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="程序猿~xiaosecond">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程序猿~xiaosecond">
-<meta property="og:url" content="http://blog.xiaosecond.top/archives/index.html">
+    <meta name="description" content="生命在于折腾">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux 安装Erlang">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
-<meta property="og:description" content="程序猿~xiaosecond">
+<meta property="og:description" content="生命在于折腾">
+<meta property="og:updated_time" content="2017-03-22T09:30:18.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="程序猿~xiaosecond">
-<meta name="twitter:description" content="程序猿~xiaosecond">
+<meta name="twitter:title" content="linux 安装Erlang">
+<meta name="twitter:description" content="生命在于折腾">
     
 
     
@@ -198,25 +199,21 @@
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title">2017</h1>
-            </div>
+            <section id="main"><article id="post-linux-安装Erlang" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/21/linux-安装Erlang/">linux 安装Erlang</a>
+        <h1 class="article-title" itemprop="name">
+            linux 安装Erlang
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
         <a href="/2017/03/21/linux-安装Erlang/">
@@ -225,347 +222,132 @@
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
         <a class="article-category-link" href="/categories/Linux/">Linux</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/Erlang/">Erlang</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                    </div>
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/21/linux-安装-pythonn/">linux  安装 python</a>
-        </h1>
-    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>官网地址：<a href="http://www.erlang.org/downloads" target="_blank" rel="external">http://www.erlang.org/downloads</a><br>百度云</p>
+<h2 id="安装perl"><a href="#安装perl" class="headerlink" title="安装perl"></a>安装perl</h2><p>下载：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf perl-5.16.1.tar.gz</div><div class="line">[root@bogon local]# cd perl-5.16.1</div><div class="line">[root@bogon perl-5.16.1]# ./Configure -des -Dprefix=/usr/local/perl</div><div class="line">[root@bogon perl-5.16.1]# make</div><div class="line">[root@bogon perl-5.16.1]# make test</div><div class="line">[root@bogon perl-5.16.1]# make install</div><div class="line">[root@bogon perl-5.16.1]# perl -v</div></pre></td></tr></table></figure></p>
+<h2 id="安装ncurses"><a href="#安装ncurses" class="headerlink" title="安装ncurses"></a>安装ncurses</h2><p>下载：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf ncurses-5.7</div><div class="line">[root@bogon local]# cd ncurses-5.7</div><div class="line">[root@bogon ncurses-5.7]# ./configure -prefix=/usr/local -with-shared -without-debug</div><div class="line">[root@bogon ncurses-5.7]# make</div><div class="line">[root@bogon ncurses-5.7]# make install</div></pre></td></tr></table></figure></p>
+<h2 id="安装m4"><a href="#安装m4" class="headerlink" title="安装m4"></a>安装m4</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]  tar -zxvf  m4-1.4.18.tar.gz </div><div class="line">[root@bogon local] cd m4-1.4.18</div><div class="line">[root@bogon m4-1.4.18]# ./configure</div><div class="line">[root@bogon m4-1.4.18]# make </div><div class="line">[root@bogon m4-1.4.18]# make install</div></pre></td></tr></table></figure>
+<h2 id="安装flex"><a href="#安装flex" class="headerlink" title="安装flex"></a>安装flex</h2><p>下载：<a href="https://sourceforge.net/projects/flex/files/?source=navbar" target="_blank" rel="external">https://sourceforge.net/projects/flex/files/?source=navbar</a></p>
+<p>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf flex-2.5.37.tar.gz </div><div class="line">root@bogon local]# cd flex-2.5.37</div><div class="line">[root@bogon flex-2.5.37]#  ./configure</div><div class="line">[root@bogon flex-2.5.37]# make</div><div class="line">[root@bogon flex-2.5.37]# make install</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# yum -y install flex</div></pre></td></tr></table></figure>
+<h2 id="安装bacc"><a href="#安装bacc" class="headerlink" title="安装bacc"></a>安装bacc</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install bacc</div></pre></td></tr></table></figure>
+<h2 id="安装unixODBC"><a href="#安装unixODBC" class="headerlink" title="安装unixODBC"></a>安装unixODBC</h2><p>下载：<br><a href="http://www.unixodbc.org/unixODBC-2.2.1.tar.gz" target="_blank" rel="external">http://www.unixodbc.org/unixODBC-2.2.1.tar.gz</a><br>百度云：<br>解压安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf unixODBC-2.2.1.tar.gz </div><div class="line">[root@bogon local]# cd unixODBC-2.2.1 </div><div class="line">[root@bogon unixODBC-2.2.1]# ./configure --enable-gui=no</div></pre></td></tr></table></figure></p>
+<h2 id="安装OpenSSL"><a href="#安装OpenSSL" class="headerlink" title="安装OpenSSL"></a>安装OpenSSL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">```</div></pre></td></tr></table></figure>
+<p>[root@bogon local]# yum install -y openssl openssl-devel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 解压</div></pre></td></tr></table></figure>
+<p>[root@bogon local]# tar -zxvf otp_src_18.3.tar.gz<br>```</p>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/21/linux-安装-pythonn/">
-            <time datetime="2017-03-21T10:38:45.000Z" itemprop="datePublished">2017-03-21</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tomcat/">tomcat</a>
-    </div>
-
-                </div>
-            </div>
+        
         </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/21/Linux-安装tomcat/">Linux 安装tomcat</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/21/Linux-安装tomcat/">
-            <time datetime="2017-03-21T09:09:14.000Z" itemprop="datePublished">2017-03-21</time>
-        </a>
-    </div>
+        <footer class="article-footer">
+            <div class="share-container">
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tomcat/">tomcat</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/16/Linux安装ftp组件/">Linux安装ftp组件</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/16/Linux安装ftp组件/">
-            <time datetime="2017-03-16T14:30:07.000Z" itemprop="datePublished">2017-03-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/ftp，Linux/">ftp，Linux</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/16/Iptables详解/">Iptables详解</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/16/Iptables详解/">
-            <time datetime="2017-03-16T09:13:01.000Z" itemprop="datePublished">2017-03-16</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Iptables，Linux/">Iptables，Linux</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/16/Centos安装Nginx/">Linux安装Nginx</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/16/Centos安装Nginx/">
-            <time datetime="2017-03-15T20:42:18.000Z" itemprop="datePublished">2017-03-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Nginx/">Nginx</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/15/Linux下安装Mysql/">Linux下安装Mysql</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/15/Linux下安装Mysql/">
-            <time datetime="2017-03-15T10:38:15.000Z" itemprop="datePublished">2017-03-15</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Linux/">Linux</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/13/Eclipse配置maven/">Eclipse配置maven</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/13/Eclipse配置maven/">
-            <time datetime="2017-03-12T16:11:50.000Z" itemprop="datePublished">2017-03-12</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/12/电商项目小记/">电商项目小记</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/12/电商项目小记/">
-            <time datetime="2017-03-12T10:28:48.000Z" itemprop="datePublished">2017-03-12</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2017/03/09/hexo搭建个人博客/">hexo+github 搭建个人博客</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/09/hexo搭建个人博客/">
-            <time datetime="2017-03-08T17:48:41.000Z" itemprop="datePublished">2017-03-08</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Blog/">Blog</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Blog/">Blog</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
 </div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2017/03/21/linux-安装-pythonn/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">linux  安装 python</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+
+            <!-- 多说评论框 start -->
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/21/linux-安装Erlang/" data-title="linux 安装Erlang" data-url="http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/"></div>
+            <!-- 多说评论框 end -->
+            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"xiaosecond"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                    || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- 多说公共JS代码 end -->
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -656,11 +438,13 @@
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://blog.xiaosecond.top/2017/03/21/linux-安装Erlang/';
+        
+        this.page.identifier = 'linux-安装Erlang';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'xiaosecond' + '.disqus.com/count.js';
+        s.src = '//' + 'xiaosecond' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
