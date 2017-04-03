@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.xiaosecond.top/"/>
-  <updated>2017-03-22T09:30:18.068Z</updated>
+  <updated>2017-04-03T11:59:54.501Z</updated>
   <id>http://blog.xiaosecond.top/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Struts2(一)——总体介绍</title>
+    <link href="http://blog.xiaosecond.top/2017/04/04/Struts2-%E4%B8%80-%E2%80%94%E2%80%94%E6%80%BB%E4%BD%93%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/</id>
+    <published>2017-04-03T19:18:57.000Z</published>
+    <updated>2017-04-03T11:59:54.501Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Struts2简介"><a href="#Struts2简介" class="headerlink" title="Struts2简介"></a>Struts2简介</h2><p> &emsp;&emsp;1、Struts(金属支架)，在程序中表示起支撑作用的通用程序代码，Struts2是在Struts1框架的基础上融合了WebWork优秀框架升级得到的。<br> &emsp;&emsp;2、Struts2框架是一个轻量级的MVC流程框架，轻量级是指程序的代码不是很多，运行时占用的资源不是很多，MVC流程框架就是说它是支持分层开发，控制数据的流程，从哪里来，到那里去，怎么来，怎么去的这样一个框架；<br> &emsp;&emsp;3、Struts2框架改善的地方：核心基于Filter；流程可以动态扩展；多例创建对象；支持多种视图展现技术（JSP，Freemarker，Volicity）</p>
+<h2 id="Strut2的搭建"><a href="#Strut2的搭建" class="headerlink" title="Strut2的搭建"></a>Strut2的搭建</h2><p>  &emsp;&emsp;1、新建Web项目：进行必备Jar包的拷贝，放到lib目录以便项目的引用<br>  <img src="../../../../img/Struts2_1.png" alt=""><br>  &emsp;&emsp;2、拷贝框架的核心配置文件Struts.xml，放到src目录下，保留一个基本配置即可，这里没网的话需要我们自己配置一下xml文件对应的DTD或者schema文件，方便我们后期的编写：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</div><div class="line">    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;3、然后在我们的web.xml文件中进行核心调度器的配置，这里我们一般过滤所有访问路径即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> &lt;!-- 配置框架的核心调度器 --&gt;</div><div class="line">&lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line">&lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line"></div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="Struts2框架的源码分析"><a href="#Struts2框架的源码分析" class="headerlink" title="Struts2框架的源码分析"></a>Struts2框架的源码分析</h2><p> &emsp;&emsp;1、Tomcat等服务器启动时，框架做的事情：——&gt;反射创建了StrutsPrepareAndExecuteFilter对象，相当于使用Struts2的一个准备对象吧，——&gt;然后创建了Dispatcher(核心调度器),——&gt;通过此对象，加载对象默认的配置文件（org/apache/struts2/default.properties），解析了默认的xml文件（struts-default.xml等），——&gt;并试图加载我们编写的xml文件或者属性文件,——&gt;并创建了我们需要用的PrepareOperations和ExecuteOperations对象。<br> &emsp;&emsp;2、当我们访问jsp页面时，这里会进行页面编码设置，反射创建我们的DefaultActionMapper对象，进行对URI的获取，解析，封装，由于是直接访问的jsp页面，也就是静态的，直接跳转，相对来说比较简单。<br> &emsp;&emsp;3、发送actin请求时，这里比较麻烦，——&gt;利用DefaultActionMapper,进行对URI的获取解析，例如访问那个类，那个方法，是不是动态访问（带有！号），有什么特殊处理（有.x  .y结尾等）。进行相关信息的解析后，——&gt;Dispatcher（核心调度器）反射创建StrutsActionProxyFactory代理对象工厂，这里在反射创建我们要访问的类时，——&gt;模仿了动态代理，创建了代理对象StrutsActionProxy和扩展对象DefaultActionInvocation，——&gt;扩展对象又创建了我们的目标对象工厂，——&gt;然后反射创建了我们想要访问的目标对象action。——&gt;然后通过调用代理对象，执行扩展对象中的方法，——&gt;执行我们框架默认的18个拦截器，——&gt;反射调用访问action方法，——&gt;获取执行后的结果result，——&gt;最后进行相关界面或者action的指向。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      生命在于折腾
+    
+    </summary>
+    
+      <category term="Struts" scheme="http://blog.xiaosecond.top/categories/Struts/"/>
+    
+    
+      <category term="SSH，Struts" scheme="http://blog.xiaosecond.top/tags/SSH%EF%BC%8CStruts/"/>
+    
+  </entry>
   
   <entry>
     <title>linux 安装Erlang</title>

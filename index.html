@@ -151,11 +151,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                10
+                11
                 <span>文章</span>
             </div>
             <div class="article-info-block">
-                8
+                9
                 <span>标签</span>
             </div>
         </div>
@@ -199,6 +199,110 @@
 
             
             <section id="main">
+    <article id="post-Struts2-一-——总体介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/04/04/Struts2-一-——总体介绍/">Struts2(一)——总体介绍</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/04/04/Struts2-一-——总体介绍/">
+            <time datetime="2017-04-03T19:18:57.000Z" itemprop="datePublished">2017-04-03</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Struts/">Struts</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/SSH，Struts/">SSH，Struts</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="Struts2简介"><a href="#Struts2简介" class="headerlink" title="Struts2简介"></a>Struts2简介</h2><p> &emsp;&emsp;1、Struts(金属支架)，在程序中表示起支撑作用的通用程序代码，Struts2是在Struts1框架的基础上融合了WebWork优秀框架升级得到的。<br> &emsp;&emsp;2、Struts2框架是一个轻量级的MVC流程框架，轻量级是指程序的代码不是很多，运行时占用的资源不是很多，MVC流程框架就是说它是支持分层开发，控制数据的流程，从哪里来，到那里去，怎么来，怎么去的这样一个框架；<br> &emsp;&emsp;3、Struts2框架改善的地方：核心基于Filter；流程可以动态扩展；多例创建对象；支持多种视图展现技术（JSP，Freemarker，Volicity）</p>
+<h2 id="Strut2的搭建"><a href="#Strut2的搭建" class="headerlink" title="Strut2的搭建"></a>Strut2的搭建</h2><p>  &emsp;&emsp;1、新建Web项目：进行必备Jar包的拷贝，放到lib目录以便项目的引用<br>  <img src="../../../../img/Struts2_1.png" alt=""><br>  &emsp;&emsp;2、拷贝框架的核心配置文件Struts.xml，放到src目录下，保留一个基本配置即可，这里没网的话需要我们自己配置一下xml文件对应的DTD或者schema文件，方便我们后期的编写：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</div><div class="line">    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;3、然后在我们的web.xml文件中进行核心调度器的配置，这里我们一般过滤所有访问路径即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> &lt;!-- 配置框架的核心调度器 --&gt;</div><div class="line">&lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line">&lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line"></div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="Struts2框架的源码分析"><a href="#Struts2框架的源码分析" class="headerlink" title="Struts2框架的源码分析"></a>Struts2框架的源码分析</h2><p> &emsp;&emsp;1、Tomcat等服务器启动时，框架做的事情：——&gt;反射创建了StrutsPrepareAndExecuteFilter对象，相当于使用Struts2的一个准备对象吧，——&gt;然后创建了Dispatcher(核心调度器),——&gt;通过此对象，加载对象默认的配置文件（org/apache/struts2/default.properties），解析了默认的xml文件（struts-default.xml等），——&gt;并试图加载我们编写的xml文件或者属性文件,——&gt;并创建了我们需要用的PrepareOperations和ExecuteOperations对象。<br> &emsp;&emsp;2、当我们访问jsp页面时，这里会进行页面编码设置，反射创建我们的DefaultActionMapper对象，进行对URI的获取，解析，封装，由于是直接访问的jsp页面，也就是静态的，直接跳转，相对来说比较简单。<br> &emsp;&emsp;3、发送actin请求时，这里比较麻烦，——&gt;利用DefaultActionMapper,进行对URI的获取解析，例如访问那个类，那个方法，是不是动态访问（带有！号），有什么特殊处理（有.x  .y结尾等）。进行相关信息的解析后，——&gt;Dispatcher（核心调度器）反射创建StrutsActionProxyFactory代理对象工厂，这里在反射创建我们要访问的类时，——&gt;模仿了动态代理，创建了代理对象StrutsActionProxy和扩展对象DefaultActionInvocation，——&gt;扩展对象又创建了我们的目标对象工厂，——&gt;然后反射创建了我们想要访问的目标对象action。——&gt;然后通过调用代理对象，执行扩展对象中的方法，——&gt;执行我们框架默认的18个拦截器，——&gt;反射调用访问action方法，——&gt;获取执行后的结果result，——&gt;最后进行相关界面或者action的指向。</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+</div>
+<script>
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<style>
+    .bdshare_popup_box {
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .bdshare-button-style0-16 a,
+    .bdshare-button-style0-16 .bds_more {
+        padding-left: 20px;
+        margin: 6px 10px 6px 0;
+    }
+    .bdshare_dialog_list a,
+    .bdshare_popup_list a,
+    .bdshare_popup_bottom a {
+        font-family: 'Microsoft Yahei';
+    }
+    .bdshare_popup_top {
+        display: none;
+    }
+    .bdshare_popup_bottom {
+        height: auto;
+        padding: 5px;
+    }
+</style>
+
+
+</div>
+
+            
+    
+        <a href="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/">评论</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-linux-安装Erlang" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1148,114 +1252,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
 
 
-    <article id="post-hexo搭建个人博客" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/03/09/hexo搭建个人博客/">hexo+github 搭建个人博客</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/03/09/hexo搭建个人博客/">
-            <time datetime="2017-03-08T17:48:41.000Z" itemprop="datePublished">2017-03-08</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Blog/">Blog</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Blog/">Blog</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="为什么选择使用Hexo在github上搭建博客"><a href="#为什么选择使用Hexo在github上搭建博客" class="headerlink" title="为什么选择使用Hexo在github上搭建博客"></a>为什么选择使用Hexo在github上搭建博客</h2><h5 id="博客搭建的三个阶段"><a href="#博客搭建的三个阶段" class="headerlink" title="博客搭建的三个阶段"></a>博客搭建的三个阶段</h5><p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。<br>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。<br>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。<br>第一阶段最简单，在csdn、博客园或者其他博客网站上注册一个账号就算开个blog了。第二阶段功能强大，购买空间之后就能创建动态网站，然而还要自己写代码，对于工作党来说，时间宝贵，花费在这个上面也提升不了多少自己的价值。而搭建该博客的目的是在于提供一种形式让自己去总结自己的工作经验、技术经验，也当作一个分享。所以，我选择的是第三种方法。</p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo是一个简单、快速、强大的静态博客框架,出自台湾大学生tommy351之手。使用Jekyll搭建个人博客的过程，确实要繁琐许多。相比之下Hexo更轻便更快捷，下面是Hexo官网强调Hexo的四大特点：</p>
-<ul>
-<li>极速生成静态页面</li>
-<li>支持Markdown</li>
-<li>丰富的插件支持</li>
-<li>一键部署博客</li>
-</ul></p>
-            <p class="article-more-link">
-                <a href="/2017/03/09/hexo搭建个人博客/#more">查看更多</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/09/hexo搭建个人博客/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
+    <nav id="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -1281,7 +1280,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Struts/">Struts</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -1290,7 +1289,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">10</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -1299,7 +1298,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/Iptables，Linux/" style="font-size: 10px;">Iptables，Linux</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/ftp，Linux/" style="font-size: 10px;">ftp，Linux</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/tomcat/" style="font-size: 20px;">tomcat</a>
+            <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/Erlang/" style="font-size: 10px;">Erlang</a> <a href="/tags/Iptables，Linux/" style="font-size: 10px;">Iptables，Linux</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/SSH，Struts/" style="font-size: 10px;">SSH，Struts</a> <a href="/tags/ftp，Linux/" style="font-size: 10px;">ftp，Linux</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/tomcat/" style="font-size: 20px;">tomcat</a>
         </div>
     </div>
 

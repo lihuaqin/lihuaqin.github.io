@@ -3,18 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Linux 安装tomcat | 程序猿~xiaosecond</title>
+    <title>归档: 2017 | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="生命在于折腾">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux 安装tomcat">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/index.html">
+    <meta name="description" content="程序猿~xiaosecond">
+<meta property="og:type" content="website">
+<meta property="og:title" content="程序猿~xiaosecond">
+<meta property="og:url" content="http://blog.xiaosecond.top/archives/2017/page/2/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
-<meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-03-21T01:43:29.405Z">
+<meta property="og:description" content="程序猿~xiaosecond">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux 安装tomcat">
-<meta name="twitter:description" content="生命在于折腾">
+<meta name="twitter:title" content="程序猿~xiaosecond">
+<meta name="twitter:description" content="程序猿~xiaosecond">
     
 
     
@@ -199,161 +198,54 @@
 </aside>
 
             
-            <section id="main"><article id="post-Linux-安装tomcat" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+            <section id="main"><div class="timeline timeline-wrap">
+    
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title">2017</h1>
+            </div>
         
-        
-            <header class="article-header">
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
                 
     
-        <h1 class="article-title" itemprop="name">
-            Linux 安装tomcat
+        <h1 itemprop="name">
+            <a class="timeline-article-title" href="/2017/03/09/hexo搭建个人博客/">hexo+github 搭建个人博客</a>
         </h1>
     
 
-                
-                    <div class="article-meta">
-                        
+                <div class="article-meta">
+                    
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/21/Linux-安装tomcat/">
-            <time datetime="2017-03-21T09:09:14.000Z" itemprop="datePublished">2017-03-21</time>
+        <a href="/2017/03/09/hexo搭建个人博客/">
+            <time datetime="2017-03-08T17:48:41.000Z" itemprop="datePublished">2017-03-08</time>
         </a>
     </div>
 
 
-                        
+                    
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Linux/">Linux</a>
+        <a class="article-category-link" href="/categories/Blog/">Blog</a>
     </div>
 
-                        
+                    
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/tomcat/">tomcat</a>
+        <a class="tag-link" href="/tags/Blog/">Blog</a>
     </div>
 
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <h2 id="安装JDK环境"><a href="#安装JDK环境" class="headerlink" title="安装JDK环境"></a>安装JDK环境</h2><p>下载地址：<br>解压：jdk-7u79-linux-x64.tar.gz<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf jdk-7u79-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
-<p>配置jdk环境<br>打开etc目录,修改profile文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# cd /etc/</div><div class="line">[root@bogon etc]# vi profile</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>在profile末尾添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/jdk1.7.0_79</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export PATH=$PATH:$JAVA_HOME/bin</div><div class="line">export CLASSPATH=./:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div></pre></td></tr></table></figure></p>
-<p>使profile生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# source /etc/profile</div></pre></td></tr></table></figure></p>
-<p>查看环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# echo $JAVA_HOME</div><div class="line">[root@bogon etc]# echo $CLASSPATH</div><div class="line">[root@bogon etc]# echo $PATH</div></pre></td></tr></table></figure></p>
-<p>查看jdk版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@bogon etc]# java -version</div></pre></td></tr></table></figure></p>
-<h2 id="安装tomcat"><a href="#安装tomcat" class="headerlink" title="安装tomcat"></a>安装tomcat</h2><p>下载<br>解压apache-tomcat-7.0.70.tar.gz：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# tar -zxvf apache-tomcat-7.0.70.tar.gz</div><div class="line">[root@bogon local]# mv apache-tomcat-7.0.70   tomcat</div></pre></td></tr></table></figure></p>
-<p>打开tomcat/conf/目录配置项目路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@bogon local]# cd tomcat/conf/</div><div class="line">[root@bogon conf]# vi  server.xml</div></pre></td></tr></table></figure></p>
-<p>添加context配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot;</div><div class="line">           unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;</div><div class="line">        &lt;Context path=&quot;/&quot; docBase=&quot;/usr/local/tomcat/webapps/test&quot; reloadable=&quot;true&quot;&gt;</div><div class="line">        &lt;/Context&gt;</div><div class="line">       &lt;!-- SingleSignOn valve, share authentication between web applications</div><div class="line">            Documentation at: /docs/config/valve.html --&gt;</div><div class="line">       &lt;!--</div><div class="line">       &lt;Valve className=&quot;org.apache.catalina.authenticator.SingleSignOn&quot; /&gt;</div><div class="line">       --&gt;</div><div class="line"></div><div class="line">       &lt;!-- Access log processes all example.</div><div class="line">            Documentation at: /docs/config/valve.html</div><div class="line">            Note: The pattern used is equivalent to using pattern=&quot;common&quot; --&gt;</div><div class="line">       &lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot;</div><div class="line">              prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot;</div><div class="line">              pattern=&quot;%h %l %u %t &amp;quot;%r&amp;quot; %s %b&quot; /&gt;</div><div class="line"></div><div class="line">     &lt;/Host&gt;</div></pre></td></tr></table></figure></p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-    <div class="bdsharebuttonbox">
-    <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-    <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
-    <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
-</div>
-<script>
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-<style>
-    .bdshare_popup_box {
-        border-radius: 4px;
-        border: #e1e1e1 solid 1px;
-    }
-    .bdshare-button-style0-16 a,
-    .bdshare-button-style0-16 .bds_more {
-        padding-left: 20px;
-        margin: 6px 10px 6px 0;
-    }
-    .bdshare_dialog_list a,
-    .bdshare_popup_list a,
-    .bdshare_popup_bottom a {
-        font-family: 'Microsoft Yahei';
-    }
-    .bdshare_popup_top {
-        display: none;
-    }
-    .bdshare_popup_bottom {
-        height: auto;
-        padding: 5px;
-    }
-</style>
-
-
-</div>
-
-            
-    
-        <a href="http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/">评论</a>
-    
-
-        </footer>
-    </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2017/03/21/linux-安装-pythonn/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    linux  安装 python
-                
+                </div>
             </div>
-        </a>
+        </div>
     
-    
-        <a href="/2017/03/16/Linux安装ftp组件/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Linux安装ftp组件</div>
-        </a>
-    
-</nav>
+</div>
 
-
-    
-</article>
-
-
-    
-    <section id="comments">
-    
-
-            <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/21/Linux-安装tomcat/" data-title="Linux 安装tomcat" data-url="http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/"></div>
-            <!-- 多说评论框 end -->
-            <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-            <script type="text/javascript">
-                var duoshuoQuery = {short_name:"xiaosecond"};
-                (function() {
-                    var ds = document.createElement('script');
-                    ds.type = 'text/javascript';ds.async = true;
-                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                    ds.charset = 'UTF-8';
-                    (document.getElementsByTagName('head')[0]
-                    || document.getElementsByTagName('body')[0]).appendChild(ds);
-                })();
-            </script>
-            <!-- 多说公共JS代码 end -->
-
-    
-    </section>
-
+    <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; 上一页</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
+    </nav>
 </section>
             
                 <aside id="sidebar">
@@ -444,13 +336,11 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/03/21/Linux-安装tomcat/';
-        
-        this.page.identifier = 'Linux-安装tomcat';
+        this.page.identifier = 'undefined';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'xiaosecond' + '.disqus.com/embed.js';
+        s.src = '//' + 'xiaosecond' + '.disqus.com/count.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
