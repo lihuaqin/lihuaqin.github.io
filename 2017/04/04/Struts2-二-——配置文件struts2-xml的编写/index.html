@@ -3,20 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Struts2(一)——总体介绍 | 程序猿~xiaosecond</title>
+    <title>Struts2(二)——配置文件struts2.xml的编写 | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="生命在于折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struts2(一)——总体介绍">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/index.html">
+<meta property="og:title" content="Struts2(二)——配置文件struts2.xml的编写">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/Struts2_1.png">
-<meta property="og:updated_time" content="2017-04-03T13:26:27.566Z">
+<meta property="og:updated_time" content="2017-04-03T13:26:27.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2(一)——总体介绍">
+<meta name="twitter:title" content="Struts2(二)——配置文件struts2.xml的编写">
 <meta name="twitter:description" content="生命在于折腾">
-<meta name="twitter:image" content="http://blog.xiaosecond.top/../../../../img/Struts2_1.png">
     
 
     
@@ -201,7 +199,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Struts2-一-——总体介绍" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Struts2-二-——配置文件struts2-xml的编写" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -209,7 +207,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Struts2(一)——总体介绍
+            Struts2(二)——配置文件struts2.xml的编写
         </h1>
     
 
@@ -218,8 +216,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/04/04/Struts2-一-——总体介绍/">
-            <time datetime="2017-04-03T19:18:57.000Z" itemprop="datePublished">2017-04-03</time>
+        <a href="/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/">
+            <time datetime="2017-04-03T20:20:55.000Z" itemprop="datePublished">2017-04-03</time>
         </a>
     </div>
 
@@ -244,11 +242,19 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="Struts2简介"><a href="#Struts2简介" class="headerlink" title="Struts2简介"></a>Struts2简介</h2><p> &emsp;&emsp;1、Struts(金属支架)，在程序中表示起支撑作用的通用程序代码，Struts2是在Struts1框架的基础上融合了WebWork优秀框架升级得到的。<br> &emsp;&emsp;2、Struts2框架是一个轻量级的MVC流程框架，轻量级是指程序的代码不是很多，运行时占用的资源不是很多，MVC流程框架就是说它是支持分层开发，控制数据的流程，从哪里来，到那里去，怎么来，怎么去的这样一个框架；<br> &emsp;&emsp;3、Struts2框架改善的地方：核心基于Filter；流程可以动态扩展；多例创建对象；支持多种视图展现技术（JSP，Freemarker，Volicity）</p>
- <a id="more"></a>
-<h2 id="Strut2的搭建"><a href="#Strut2的搭建" class="headerlink" title="Strut2的搭建"></a>Strut2的搭建</h2><p>  &emsp;&emsp;1、新建Web项目：进行必备Jar包的拷贝，放到lib目录以便项目的引用<br>  <img src="../../../../img/Struts2_1.png" alt=""><br>  &emsp;&emsp;2、拷贝框架的核心配置文件Struts.xml，放到src目录下，保留一个基本配置即可，这里没网的话需要我们自己配置一下xml文件对应的DTD或者schema文件，方便我们后期的编写：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.0//EN&quot;</div><div class="line">    &quot;http://struts.apache.org/dtds/struts-2.0.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;3、然后在我们的web.xml文件中进行核心调度器的配置，这里我们一般过滤所有访问路径即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> &lt;!-- 配置框架的核心调度器 --&gt;</div><div class="line">&lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line">&lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line"></div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="Struts2框架的源码分析"><a href="#Struts2框架的源码分析" class="headerlink" title="Struts2框架的源码分析"></a>Struts2框架的源码分析</h2><p> &emsp;&emsp;1、Tomcat等服务器启动时，框架做的事情：——&gt;反射创建了StrutsPrepareAndExecuteFilter对象，相当于使用Struts2的一个准备对象吧，——&gt;然后创建了Dispatcher(核心调度器),——&gt;通过此对象，加载对象默认的配置文件（org/apache/struts2/default.properties），解析了默认的xml文件（struts-default.xml等），——&gt;并试图加载我们编写的xml文件或者属性文件,——&gt;并创建了我们需要用的PrepareOperations和ExecuteOperations对象。<br> &emsp;&emsp;2、当我们访问jsp页面时，这里会进行页面编码设置，反射创建我们的DefaultActionMapper对象，进行对URI的获取，解析，封装，由于是直接访问的jsp页面，也就是静态的，直接跳转，相对来说比较简单。<br> &emsp;&emsp;3、发送actin请求时，这里比较麻烦，——&gt;利用DefaultActionMapper,进行对URI的获取解析，例如访问那个类，那个方法，是不是动态访问（带有！号），有什么特殊处理（有.x  .y结尾等）。进行相关信息的解析后，——&gt;Dispatcher（核心调度器）反射创建StrutsActionProxyFactory代理对象工厂，这里在反射创建我们要访问的类时，——&gt;模仿了动态代理，创建了代理对象StrutsActionProxy和扩展对象DefaultActionInvocation，——&gt;扩展对象又创建了我们的目标对象工厂，——&gt;然后反射创建了我们想要访问的目标对象action。——&gt;然后通过调用代理对象，执行扩展对象中的方法，——&gt;执行我们框架默认的18个拦截器，——&gt;反射调用访问action方法，——&gt;获取执行后的结果result，——&gt;最后进行相关界面或者action的指向。</p>
+            <h2 id="框架的扩展名问题"><a href="#框架的扩展名问题" class="headerlink" title="框架的扩展名问题"></a>框架的扩展名问题</h2><p>&emsp;&emsp;1、struts2框架的默认扩展名：.action和空字符串。在框架的属性文件default.properties中进行默认配置：struts.action.extension=action,,<br>&emsp;&emsp;2、如何覆盖框架的默认扩展名：<br>&emsp;&emsp;&emsp;&emsp;a、在struts.xml文件中增加常量标签（推荐使用）</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--声明常量 --&gt;</div><div class="line">&lt;!--覆盖框架默认扩展名 --&gt;</div><div class="line">&lt;constantname=&quot;struts.action.extension&quot;value=&quot;action,,do&quot;&gt;&lt;/constant&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;b、在自定义属性文件中struts.properties中设置（只要在默认的default.properties中设置，都可以通过这种方式覆盖）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">struts.action.extension=action,,do</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;c、在web.xml文件中进行设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!--配置框架的核心调度器,设置了初始化参数 --&gt;</div><div class="line">&lt;filter&gt;</div><div class="line">&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">&lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;init-param&gt;</div><div class="line">&lt;param-name&gt;struts.action.extension&lt;/param-name&gt;</div><div class="line">&lt;param-value&gt;action,,do&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line">&lt;filter-mapping&gt;</div><div class="line">&lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注意：如果以上三种情况同时存在，那么过滤器设置起作用。如果过滤器参数设置不存在，那么属性文件(struts.properties)设置起作用。这和我们源码初始化这些文件的先后顺序有关。而我们推荐是在struts.xml文件中进行设计的。所以下边类似的，我只是演示在struts.xml文件中的设计方式。</p>
+<h2 id="框架的字符编码问题"><a href="#框架的字符编码问题" class="headerlink" title="框架的字符编码问题"></a>框架的字符编码问题</h2><p>&emsp;&emsp;1、框架默认的字符编码是：UTF-8，也是在default.properties中设置的：struts.i18n.encoding=UTF-8<br>&emsp;&emsp;2、覆盖框架的默认字符编码：在struts.xml文件中进行常量配置，当然在struts.properties文件中和过滤器设置初始化参数也可以，这里不再演示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  &lt;!-- 覆盖框架的默认字符编码 --&gt;</div><div class="line">&lt;constantname=&quot;struts.i18n.encoding&quot;value=&quot;GB18030&quot;&gt;&lt;/constant&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="框架的开发模式"><a href="#框架的开发模式" class="headerlink" title="框架的开发模式"></a>框架的开发模式</h2><p>&emsp;&emsp;在开发中xml文件我们会经常修改，但是我们又不想每次修改就进行服务器的重启部署等，所以我们可以在开发过程中将框架的默认设置为开发模式，有利于我们开发的效率的提高。当然注意在我们完成以后上线的时候还需要改回默认的。防止不必要的麻烦发生。<br>&emsp;&emsp;1、对于struts.xml文件的修改不需要进行服务器重启，可以在其内进行这样设置，覆盖默认的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--设置框架重新加载配置文件的标识 --&gt;</div><div class="line">&lt;constantname=&quot;struts.configuration.xml.reload&quot;value=&quot;true&quot;&gt;&lt;/constant&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;2、当然我们想的还有属性文件等，这需要我们设置为开发模式（更常用）： 增加常量标签，进行开发模式设置，这里设置以后就会将上边的设置进行覆盖，所以设置这一个就够了：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--设置开发模式 --&gt;</div><div class="line">&lt;constantname=&quot;struts.devMode&quot; value=&quot;true&quot;&gt;&lt;/constant&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="框架命名空间的问题"><a href="#框架命名空间的问题" class="headerlink" title="框架命名空间的问题"></a>框架命名空间的问题</h2><p>&emsp;&emsp;1、命名空间namespace其实是<package>标签的一个属性,用来对action请求的路径进行管理。所谓的包<package>表示对Action配置的管理。包名是应该具有唯一性的标识，不能存在相同的两个包名。命名空间正常来讲不应该存在相同的名称，如果两个命名空间名称相同，而且存在相同的action名称，那么后面配置的action会起作用。<br>&emsp;&emsp;2、访问action对象时，请求路径的格式为：命名空间 + “/“ + Action的name属性值。但是用户也可以在发送时，添加额外的路径：例如：命名空间 + “/“额外路径 + “/“+ Action的name属性值，这样框架任然可以访问到的，这和框架的解析路径方法有关，算是个缺陷吧，但是框架也进行相关补充，可以弥补。<br>&emsp;&emsp;3、如何限制用户的非法路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!--限制请求的命名空间必须符合规则 --&gt;</div><div class="line">&lt;constantname=&quot;struts.mapper.alwaysSelectFullNamespace&quot;value=&quot;true&quot;&gt;&lt;/constant&gt;</div></pre></td></tr></table></figure></package></package></p>
+<h2 id="框架的action问题"><a href="#框架的action问题" class="headerlink" title="框架的action问题"></a>框架的action问题</h2><p>&emsp;&emsp;根据解析请求路径，获取action的名称，到配置文件中查找到action的完整类名，反射创建。Action类设置要求：必须提供public的无参数的构造方法。Action对象是每次请求都创建一个新的实例，所以action是多例的，它解决的线程安全问题。（但是性能不高）这些都是基于框架的源码的设置。</p>
+<h2 id="框架中方法的编写"><a href="#框架中方法的编写" class="headerlink" title="框架中方法的编写"></a>框架中方法的编写</h2><p>&emsp;&emsp;1、默认方法： 框架调用Action的方法，默认方法名称为execute,默认方法execute的命名规则：必须是public;必须返回类型是String;必须名称叫做execute;必须是无参数的<br>&emsp;&emsp;2、如果希望不使用默认的execute方法名称，那么也可以自定义方法名称，但是自定义方法名称的声明规则必需与execute方法声明规则一致。请求自定义方法的方法：<br>&emsp;&emsp;&emsp;&emsp;a、通过感叹号的方式指定被调用的方法名称。这种调用方法的方式叫做动态方法调用，例如：uri = /user/login!login.action. 对于动态方法调用可以动态的调用到Action中的任意方法，但是并不是一定有效，而且开发方式属于紧耦合开发。所以这种方式不推荐使用。<br>&emsp;&emsp;&emsp;&emsp;b、如何禁止动态方法调用，禁止以后如何指定呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!--禁止感叹号的动态方法调用 --&gt;</div><div class="line">&lt;constantname=&quot;struts.enable.DynamicMethodInvocation&quot;value=&quot;false&quot;&gt;&lt;/constant&gt;</div><div class="line"></div><div class="line">&lt;!--设置method方法即可--&gt;</div><div class="line">&lt;action  name=&quot;login&quot;class=&quot;com.bjpowernode.struts2.action.LoginAction&quot;method=&quot;login&quot;&gt;</div><div class="line">    &lt;resultname=&quot;success&quot;&gt;/success.jsp&lt;/result&gt;</div><div class="line">    &lt;resultname=&quot;login&quot;&gt;/login.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;c、如果一个类有好多方法，我们如何才能简化配置呢？通过通配符的方式进行简化配置：{1}表示匹配第一个*，只要我们传过来的是方法的名字即可。但是通配符的使用要慎重，不要弄出漏洞，防止不法分子的巧弄URI进行破解。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;action  name=&quot;*&quot; class=&quot;com.bjpowernode.struts2.action.LoginAction&quot;method=&quot;&#123;1&#125;&quot;&gt;</div><div class="line">     &lt;resultname=&quot;success&quot;&gt;/success.jsp&lt;/result&gt;</div><div class="line">     &lt;resultname=&quot;login&quot;&gt;/login.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -296,7 +302,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/">评论</a>
+        <a href="http://blog.xiaosecond.top/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/">评论</a>
     
 
         </footer>
@@ -305,19 +311,19 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Struts2(二)——配置文件struts2.xml的编写
+                    Struts2(三)——数据在框架中的数据流转问题
                 
             </div>
         </a>
     
     
-        <a href="/2017/03/21/linux-安装Erlang/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/04/04/Struts2-一-——总体介绍/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">linux 安装Erlang</div>
+            <div class="article-nav-title">Struts2(一)——总体介绍</div>
         </a>
     
 </nav>
@@ -332,7 +338,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
 
             <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/04/Struts2-一-——总体介绍/" data-title="Struts2(一)——总体介绍" data-url="http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/"></div>
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/04/Struts2-二-——配置文件struts2-xml的编写/" data-title="Struts2(二)——配置文件struts2.xml的编写" data-url="http://blog.xiaosecond.top/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/"></div>
             <!-- 多说评论框 end -->
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
@@ -441,9 +447,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/04/04/Struts2-一-——总体介绍/';
+            this.page.url = 'http://blog.xiaosecond.top/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/';
         
-        this.page.identifier = 'Struts2-一-——总体介绍';
+        this.page.identifier = 'Struts2-二-——配置文件struts2-xml的编写';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
