@@ -3,22 +3,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>电商项目小记 | 程序猿~xiaosecond</title>
+    <title>Struts2(三)——Action动态方法调用 | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="生命在于折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电商项目小记">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/03/12/电商项目小记/index.html">
+<meta property="og:title" content="Struts2(三)——Action动态方法调用">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——Action动态方法调用/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang1.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang2.png">
-<meta property="og:image" content="http://blog.xiaosecond.top/../../../../img/diansang3.png">
-<meta property="og:updated_time" content="2017-03-15T05:48:23.632Z">
+<meta property="og:updated_time" content="2017-04-07T07:39:16.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="电商项目小记">
+<meta name="twitter:title" content="Struts2(三)——Action动态方法调用">
 <meta name="twitter:description" content="生命在于折腾">
-<meta name="twitter:image" content="http://blog.xiaosecond.top/../../../../img/diansang1.png">
     
 
     
@@ -203,7 +199,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-电商项目小记" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Struts2-三-——Action动态方法调用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -211,7 +207,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            电商项目小记
+            Struts2(三)——Action动态方法调用
         </h1>
     
 
@@ -220,8 +216,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/03/12/电商项目小记/">
-            <time datetime="2017-03-12T10:28:48.000Z" itemprop="datePublished">2017-03-12</time>
+        <a href="/2017/04/04/Struts2-三-——Action动态方法调用/">
+            <time datetime="2017-04-03T21:22:31.000Z" itemprop="datePublished">2017-04-03</time>
         </a>
     </div>
 
@@ -229,13 +225,13 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
+        <a class="article-category-link" href="/categories/Struts/">Struts</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
+        <a class="tag-link" href="/tags/SSH，Struts/">SSH，Struts</a>
     </div>
 
                     </div>
@@ -246,29 +242,16 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h2 id="电商行业发展"><a href="#电商行业发展" class="headerlink" title="电商行业发展"></a>电商行业发展</h2><p>&emsp;&emsp;近年来，中国的电子商务快速发展，交易额连创新高，电子商务在各领域的应用不断拓展和深化、相关服务业蓬勃发展、支撑体系不断健全完善、创新的动力和能力 不断增强。电子商务正在与实体经济深度融合，进入规模性发展阶段，对经济社会生活的影响不断增大，正成为我国经济发展的新引擎。<br>&emsp;&emsp;中国电子商务研究中心数据显示，截止到2012年底，中国电子商务市场交易规模达7.85万亿人民币，同比增长30.83%。其中，B2B电子商务交易额 达6.25万亿，同比增长27%。而2011年全年，中国电子商务市场交易额达6万亿人民币，同比增长33%，占GDP比重上升到13%；2012年，电 子商务占GDP的比重已经高达15%。预计2013年我国电子商务规模将突破十万亿大关。</p>
-<h2 id="电商行业技术特点"><a href="#电商行业技术特点" class="headerlink" title="电商行业技术特点"></a>电商行业技术特点</h2><ul>
-<li>分布式</li>
-<li>高并发、集群、负载均衡、高可用</li>
-<li>海量数据</li>
-<li>业务复杂</li>
-<li>系统安全</li>
-</ul>
+            <p>&emsp;&emsp;对于同一个表单，当用户通过不同的按钮提交同一个表单时，系统需要使用Action的不同方法来处理用户请求，这时Action便需要包含多个控制处理逻辑，即一个action中包含多个方法。例如：login界面有“登录”和“注册”两个按钮，分别触发UserAction中的login和regist方法。</p>
+<h2 id="DMI——Action动态方法调用"><a href="#DMI——Action动态方法调用" class="headerlink" title="DMI——Action动态方法调用"></a>DMI——Action动态方法调用</h2><p> &emsp;&emsp;DMI(Dynamic Method Invocation)是指调用aciton并不直接等同于调用某个action的名字，而是通过”actionname ! methodname”的形式，调用指定到action中具体方法执行。<br>&emsp;&emsp; 1、设置struts.xml 文件DMI常量启动动态方法调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;constant name=&quot;struts. enable. DynamicMethodInvocation&quot; value=&quot;true&quot;/&gt;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="功能架构"><a href="#功能架构" class="headerlink" title="功能架构"></a>功能架构</h2><h4 id="emsp-系统功能图"><a href="#emsp-系统功能图" class="headerlink" title="&emsp;系统功能图"></a>&emsp;系统功能图</h4><p><img src="../../../../img/diansang1.png" alt=""></p>
-<h2 id="功能描述"><a href="#功能描述" class="headerlink" title="功能描述"></a>功能描述</h2><p>后台管理系统：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。<br>前台系统：用户可以在前台系统中进行注册、登录、浏览商品、首页、下单等操作。<br>会员系统：用户可以在该系统中查询已下的订单、收藏的商品、我的优惠券、团购等信息。<br>订单系统：提供下单、查询订单、修改订单状态、定时处理订单。<br>搜索系统：提供商品的搜索功能。<br>单点登录系统：为多个系统之间提供用户登录凭证以及查询登录用户的信息。</p>
-<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><h4 id="emsp-传统架构"><a href="#emsp-传统架构" class="headerlink" title="&emsp;传统架构"></a>&emsp;传统架构</h4><p><img src="../../../../img/diansang2.png" alt=""><br>&emsp;&emsp; 缺点：</p>
-<p>&emsp;&emsp;&emsp;&emsp; 1.模块之间耦合度太高，其中一个升级其他都得升级<br>&emsp;&emsp;&emsp;&emsp; 2.开发困难，各个团队开发最后都要整合一起<br>&emsp;&emsp;&emsp;&emsp; 3.系统的扩展性差<br>&emsp;&emsp;&emsp;&emsp; 4.不能灵活的进行分布式部署。</p>
-<h4 id="emsp-分布式系统架构"><a href="#emsp-分布式系统架构" class="headerlink" title="&emsp;分布式系统架构"></a>&emsp;分布式系统架构</h4><p><img src="../../../../img/diansang3.png" alt=""><br>&emsp; 分布式架构：把系统拆成多个子系统<br>&emsp;&emsp; 优点：<br>&emsp;&emsp;&emsp;&emsp; 1.把模块拆分，使用接口通信，降低模块之间的耦合度。<br>&emsp;&emsp;&emsp;&emsp; 2.把项目拆分成若干个子项目，不同的团队负责不同的子项目。<br>&emsp;&emsp;&emsp;&emsp; 3.增加功能时只需要再增加一个子项目，调用其他系统的接口就可以。<br>&emsp;&emsp;&emsp;&emsp; 4.可以灵活的进行分布式部署。<br>&emsp;&emsp; 缺点：<br>&emsp;&emsp;&emsp;&emsp; 1.系统之间交互需要使用远程通信，接口开发增加工作量。 </p>
-<h4 id="emsp-技术选型"><a href="#emsp-技术选型" class="headerlink" title="&emsp;技术选型"></a>&emsp;技术选型</h4><ul>
-<li>Spring、SpringMVC、Mybatis</li>
-<li>JSP、JSTL、jQuery、jQuery plugin、EasyUI、KindEditor（富文本编辑器）、CSS+DIV</li>
-<li>Redis（缓存服务器）</li>
-<li>Solr（搜索）</li>
-<li>httpclient（调用系统服务）</li>
-<li>Mysql</li>
-<li>Nginx（web服务器）</li>
-</ul>
+<p> &emsp;&emsp;2、配置好action result值跳转页面&lt;不同方法的返回值均配置到一个action标签中&gt;<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;action name=&quot;userLoginRegist&quot; class=&quot;cn.itcast.shop.user.action.UserAction&quot;&gt;</div><div class="line">      &lt;result name=&quot;regist&quot;&gt;/WEB-INF/jsp/regist.jsp&lt;/result&gt;</div><div class="line">      &lt;result name=&quot;login&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">      &lt;result name=&quot;registSuccess&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">      &lt;result name=&quot;loginSuccess&quot;&gt;/WEB-INF/jsp/index.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure></p>
+<p> &emsp;&emsp;3、JSP中通过【action名 !方法名】的形式调用指定action中指定方法<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;submit&quot; value=&quot;注册&quot; onclick=&quot;regist()&quot; &gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line">function regist()&#123;</div><div class="line">        form.action=&quot;userLoginRegist!regist&quot;;</div><div class="line">        //login同理</div><div class="line">    &#125;</div><div class="line">&lt;/script &gt;</div></pre></td></tr></table></figure></p>
+<p>  &emsp;&emsp;4、 或者还经常用到在jsp中这样去调用:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=basePath/user/userLoginRegist!regist&quot;/&gt;</div><div class="line"></div><div class="line">&lt;a href=basePath/user/userLoginRegist!login&quot;/&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="配置method属性"><a href="#配置method属性" class="headerlink" title="配置method属性"></a>配置method属性</h2><p>&emsp;&emsp;通过指定method属性值，调用action中指定方法返回该方法result<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;action name=&quot;regist&quot; class=&quot;cn.itcast.shop.user.action.UserAction&quot; method=&quot;regist&quot;&gt;</div><div class="line">    &lt;result name=&quot;regist&quot;&gt;/WEB-INF/jsp/regist.jsp&lt;/result&gt;</div><div class="line">    &lt;result name=&quot;registSuccess&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div><div class="line"></div><div class="line">&lt;action name=&quot;login&quot; class=&quot;cn.itcast.shop.user.action.UserAction&quot; method=&quot;login&quot;&gt;</div><div class="line">    &lt;result name=&quot;login&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">    &lt;result name=&quot;loginSuccess&quot;&gt;/WEB-INF/jsp/index.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;不难看出，通过配置method属性实现方法调用，这种做法直接导致：JSP调用一个方法，便需要在配置文件中配置一个action标签；也就是说这种方式是以方法为单位进行配置，调用多少个方法，便需要配置多少个action，而指向的action类全是一个。不可避免的增加了不必要的重复配置，笨拙繁琐。</p>
+<h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><p>&emsp;&emsp;1、在action标签中使用<em>表示action名称，用{N}来表示前面第几个</em>号所匹配的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;action name=&quot;*Action&quot; class=&quot;cn.itcast.shop.user.action.UserAction&quot; method=&quot;&#123;1&#125;&quot;&gt;</div><div class="line">    &lt;result name=&quot;regist&quot;&gt;/WEB-INF/jsp/regist.jsp&lt;/result&gt;</div><div class="line">    &lt;result name=&quot;login&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">    &lt;result name=&quot;registSuccess&quot;&gt;/WEB-INF/jsp/login.jsp&lt;/result&gt;</div><div class="line">    &lt;result name=&quot;loginSuccess&quot;&gt;/WEB-INF/jsp/index.jsp&lt;/result&gt;</div><div class="line">&lt;/action&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;name=”<em>Action “  代表这个action处理所有以Action结尾的请求 method= “{1} “    根据前面请求methodname，调用action中的以methodname命名的方法<br>&emsp;&emsp;例如现在jsp调用login方法Form.action=”login”，通过读取配置文件，访问loginAction中login方法。如果调用注册，则Form.action=”regist”，通过读取配置文件，访问registeAction中login方法。所以通过通配符，我们可以配置为User_ </em>Action method={1},则可以访问User_<em>Action中的</em>方法,灵活可配。包括result 标签中的name和页面跳转也可以使用通配符进行。形如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;package name=&quot;actions&quot; extends=&quot;struts-default&quot; namespace=&quot;/actions&quot;&gt;</div><div class="line">    &lt;action name=&quot;Student*&quot; class=&quot;com.test.struts2.action.StudentAction&quot; method=&quot;&#123;1&#125;&quot;&gt;</div><div class="line">        &lt;result&gt;/Student&#123;1&#125;_success.jsp&lt;/result&gt;</div><div class="line">    &lt;/action&gt;</div><div class="line"></div><div class="line">    &lt;action name=&quot;*_*&quot; class=&quot;com.test.struts2.action.&#123;1&#125;Action&quot; method=&quot;&#123;2&#125;&quot;&gt;</div><div class="line">        &lt;result&gt;/&#123;1&#125;_&#123;2&#125;_success.jsp&lt;/result&gt;</div><div class="line">        &lt;!-- &#123;0&#125;_success.jsp --&gt;</div><div class="line">    &lt;/action&gt;</div><div class="line">&lt;/package&gt;</div><div class="line">&#123;1&#125;、&#123;2&#125;表示第一第二个占位符</div><div class="line">*为通配符</div></pre></td></tr></table></figure></p>
 
         
         </div>
@@ -316,7 +299,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://blog.xiaosecond.top/2017/03/12/电商项目小记/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/03/12/电商项目小记/">评论</a>
+        <a href="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——Action动态方法调用/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——Action动态方法调用/">评论</a>
     
 
         </footer>
@@ -325,19 +308,19 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
         
 <nav id="article-nav">
     
-        <a href="/2017/03/13/Eclipse配置maven/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/04/07/Struts2-四——核心拦截器/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Eclipse配置maven
+                    Struts2-四——拦截器
                 
             </div>
         </a>
     
     
-        <a href="/2017/03/09/hexo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">hexo+github 搭建个人博客</div>
+            <div class="article-nav-title">Struts2(二)——配置文件struts2.xml的编写</div>
         </a>
     
 </nav>
@@ -352,7 +335,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
 
             <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/03/12/电商项目小记/" data-title="电商项目小记" data-url="http://blog.xiaosecond.top/2017/03/12/电商项目小记/"></div>
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/04/Struts2-三-——Action动态方法调用/" data-title="Struts2(三)——Action动态方法调用" data-url="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——Action动态方法调用/"></div>
             <!-- 多说评论框 end -->
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
@@ -461,9 +444,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/03/12/电商项目小记/';
+            this.page.url = 'http://blog.xiaosecond.top/2017/04/04/Struts2-三-——Action动态方法调用/';
         
-        this.page.identifier = '电商项目小记';
+        this.page.identifier = 'Struts2-三-——Action动态方法调用';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Struts2(三)——数据在框架中的数据流转问题 | 程序猿~xiaosecond</title>
+    <title>Struts2-四——拦截器 | 程序猿~xiaosecond</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="生命在于折腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struts2(三)——数据在框架中的数据流转问题">
-<meta property="og:url" content="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/index.html">
+<meta property="og:title" content="Struts2-四——拦截器">
+<meta property="og:url" content="http://blog.xiaosecond.top/2017/04/07/Struts2-四——核心拦截器/index.html">
 <meta property="og:site_name" content="程序猿~xiaosecond">
 <meta property="og:description" content="生命在于折腾">
-<meta property="og:updated_time" content="2017-04-03T13:56:05.859Z">
+<meta property="og:updated_time" content="2017-04-07T07:39:27.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struts2(三)——数据在框架中的数据流转问题">
+<meta name="twitter:title" content="Struts2-四——拦截器">
 <meta name="twitter:description" content="生命在于折腾">
     
 
@@ -152,7 +152,7 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                13
+                14
                 <span>文章</span>
             </div>
             <div class="article-info-block">
@@ -199,7 +199,7 @@
 </aside>
 
             
-            <section id="main"><article id="post-Struts2-三-——数据在框架中的数据流转问题" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Struts2-四——核心拦截器" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -207,7 +207,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Struts2(三)——数据在框架中的数据流转问题
+            Struts2-四——拦截器
         </h1>
     
 
@@ -216,8 +216,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/">
-            <time datetime="2017-04-03T21:22:31.000Z" itemprop="datePublished">2017-04-03</time>
+        <a href="/2017/04/07/Struts2-四——核心拦截器/">
+            <time datetime="2017-04-07T12:32:25.000Z" itemprop="datePublished">2017-04-07</time>
         </a>
     </div>
 
@@ -242,7 +242,12 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            
+            <p>&emsp;&emsp;Struts框架一共为我们提供了35个拦截器，其中默认的拦截器有18个，框架访问action的异常处理，配置信息处理，转发重定向选择，上传等等等等，都是这18个拦截器中设置的，起着非比寻常的作用。而这些在struts-default.xml文件中都有设置，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;interceptor-stack name=&quot;defaultStack&quot;&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;exception&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;alias&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;servletConfig&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;i18n&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;prepare&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;chain&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;debugging&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;scopedModelDriven&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;modelDriven&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;fileUpload&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;checkbox&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;multiselect&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;staticParams&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;actionMappingParams&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;params&quot;&gt;</div><div class="line">                  &lt;param name=&quot;excludeParams&quot;&gt;dojo\..*,^struts\..*&lt;/param&gt;</div><div class="line">                &lt;/interceptor-ref&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;conversionError&quot;/&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;validation&quot;&gt;</div><div class="line">                    &lt;param name=&quot;excludeMethods&quot;&gt;input,back,cancel,browse&lt;/param&gt;</div><div class="line">                &lt;/interceptor-ref&gt;</div><div class="line">                &lt;interceptor-ref name=&quot;workflow&quot;&gt;</div><div class="line">                    &lt;param name=&quot;excludeMethods&quot;&gt;input,back,cancel,browse&lt;/param&gt;</div><div class="line">                &lt;/interceptor-ref&gt;</div><div class="line">            &lt;/interceptor-stack&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="这里只看一下第一个拦截器–exception"><a href="#这里只看一下第一个拦截器–exception" class="headerlink" title="这里只看一下第一个拦截器–exception"></a>这里只看一下第一个拦截器–exception</h2><p>&emsp;&emsp; 1、在默认的18个拦截器中，第一个拦截器就是exception拦截器，这就意味着，后续流程所有发生的异常都将被捕获到。就可以做统一的异常处理。如果我们相对action中的异常进行处理，需要我们在action配置中增加异常映射标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;exception-mapping  result=&quot;error&quot;  exception=&quot;Java.lang.Exception&quot;&gt;&lt;/exception-mapping&gt;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp; 2、如果每个action都想处理异常呢，总不能每个action都进行一次配置吧！框架为我们提供了配置全局使用的方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!--在package标签里声明全局的异常映射标签，进行简化配置。--&gt;</div><div class="line"></div><div class="line">&lt;global-exception-mappings&gt;</div><div class="line">    &lt;exception-mapping result=&quot;error&quot; exception=&quot;java.lang.ArithmeticException&quot;&gt;&lt;/exception-mapping&gt;</div><div class="line">&lt;/global-exception-mappings&gt;</div><div class="line"></div><div class="line">&lt;!--同样，result结果配置，也需要简化配置，可以配置全局的结果映射--&gt;</div><div class="line"></div><div class="line">&lt;global-results&gt;</div><div class="line">    &lt;result name=&quot;error&quot;&gt;/error.jsp&lt;/result&gt;</div><div class="line">&lt;/global-results&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="自定义拦截器"><a href="#自定义拦截器" class="headerlink" title="自定义拦截器"></a>自定义拦截器</h2><p>&emsp;&emsp; 假如我们想要定义一个计算方法执行时长的拦截器，看看需要我们做哪些工作呢？<br>&emsp;&emsp; 1、在创建计算action执行时间拦截器时，两种方法，继承父类：AbstractInterceptor，实现接口：Interceptor。重写里边的方法：intercept()方法。<br>&emsp;&emsp; 2、struts.xml中需要声明我们拦截器，如果直接声明，那么我们默认的18个拦截器将不起作用，如何配置及时每个action都能起到作用，又是所有的拦截器都执行呢？需要利用到拦截器栈来对框架默认的拦截器栈进行覆盖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;!--action继承这个拦截器栈，代替了框架默认的了--&gt;</div><div class="line">  &lt;package name=&quot;strust2test-Interceptor&quot; extends=&quot;struts-default&quot;&gt;</div><div class="line">       &lt;interceptors&gt;</div><div class="line">           &lt;!--声明自己的计算时间的拦截器--&gt;</div><div class="line">           &lt;interceptor name=&quot;timeInterceptor&quot; class=&quot;com.struts2.interceptor.TimeInterceptor&quot;&gt;&lt;/interceptor&gt;</div><div class="line"></div><div class="line">           &lt;!--声明自己的拦截器栈，包含了框架的默认拦截器栈，和自己声明的拦截器--&gt;</div><div class="line">           &lt;interceptor-stack name=&quot;ljhStack&quot;&gt;</div><div class="line">               &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;</div><div class="line">               &lt;interceptor-ref name=&quot;timeInterceptor&quot;&gt;&lt;/interceptor-ref&gt;</div><div class="line">           &lt;/interceptor-stack&gt;</div><div class="line">       &lt;/interceptors&gt;</div><div class="line"></div><div class="line">       &lt;!-- 默认引用，对所有的Action起作用 --&gt;</div><div class="line">       &lt;default-interceptor-ref name=&quot;ljhStack&quot;/&gt;</div><div class="line">   &lt;/package&gt;</div><div class="line"></div><div class="line">        &lt;!-- 只需要继承我们自己声明的拦截器栈即可了 --&gt;</div><div class="line">   &lt;package name=&quot;example&quot; namespace=&quot;/user&quot; extends=&quot;strust2test&quot;&gt;</div><div class="line">       &lt;action name=&quot;login&quot; class=&quot;com.struts2.action.LoginAction&quot; method=&quot;login&quot;&gt;</div><div class="line">           &lt;result name=&quot;success&quot;&gt;/success.jsp&lt;/result&gt;</div><div class="line">           &lt;result name=&quot;login&quot;&gt;/login.jsp&lt;/result&gt;</div><div class="line">       &lt;/action&gt;</div><div class="line">   &lt;/package&gt;</div></pre></td></tr></table></figure></p>
+
         
         </div>
         <footer class="article-footer">
@@ -289,7 +294,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 
             
     
-        <a href="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/">评论</a>
+        <a href="http://blog.xiaosecond.top/2017/04/07/Struts2-四——核心拦截器/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://blog.xiaosecond.top/2017/04/07/Struts2-四——核心拦截器/">评论</a>
     
 
         </footer>
@@ -299,9 +304,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
 <nav id="article-nav">
     
     
-        <a href="/2017/04/04/Struts2-二-——配置文件struts2-xml的编写/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/04/04/Struts2-三-——Action动态方法调用/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Struts2(二)——配置文件struts2.xml的编写</div>
+            <div class="article-nav-title">Struts2(三)——Action动态方法调用</div>
         </a>
     
 </nav>
@@ -316,7 +321,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     
 
             <!-- 多说评论框 start -->
-            <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/04/Struts2-三-——数据在框架中的数据流转问题/" data-title="Struts2(三)——数据在框架中的数据流转问题" data-url="http://blog.xiaosecond.top/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/"></div>
+            <div id="ds-thread" class="ds-thread" data-thread-key="2017/04/07/Struts2-四——核心拦截器/" data-title="Struts2-四——拦截器" data-url="http://blog.xiaosecond.top/2017/04/07/Struts2-四——核心拦截器/"></div>
             <!-- 多说评论框 end -->
             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
             <script type="text/javascript">
@@ -360,7 +365,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Struts/">Struts</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Struts/">Struts</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li></ul>
         </div>
     </div>
 
@@ -369,7 +374,7 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <div class="widget-wrap">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">10</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">10</span></li></ul>
         </div>
     </div>
 
@@ -425,9 +430,9 @@ window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMin
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://blog.xiaosecond.top/2017/04/04/Struts2-三-——数据在框架中的数据流转问题/';
+            this.page.url = 'http://blog.xiaosecond.top/2017/04/07/Struts2-四——核心拦截器/';
         
-        this.page.identifier = 'Struts2-三-——数据在框架中的数据流转问题';
+        this.page.identifier = 'Struts2-四——核心拦截器';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
